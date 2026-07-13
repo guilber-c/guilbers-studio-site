@@ -1,0 +1,30 @@
+project:
+  type: website
+  execute-dir: project
+  render:
+    - "*.qmd"
+    - "lab_notes/**/*.qmd"
+
+website:
+  title: "Guilber"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: lab_notes/index.qmd
+        text: Lab Notes
+      - href: projects.qmd
+        text: Projects
+      - href: portfolio.qmd
+        text: Portfolio
+      - href: about.qmd
+        text: About
+    right:
+      - text: "<img src='/images/github-avatar.png' class='navbar-avatar' alt='GitHub'>"
+        href: https://github.com/guilber-c
+
+format:
+  html:
+    theme: [darkly, radicle.scss]
+    toc: true
+    css: styles.css

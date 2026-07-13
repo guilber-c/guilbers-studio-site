@@ -1,0 +1,327 @@
+/*-- scss:defaults --*/
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+$body-bg: #1a1b26;
+$body-color: #f9f9fb;
+$link-color: #d9d9db;
+$primary: #f999f9;
+$secondary: #9999ff;
+
+$font-family-sans-serif: "Anonymous Pro", monospace;
+$font-family-monospace: "IBM Plex Mono", monospace;
+
+$link-decoration: none;
+
+/*-- scss:rules --*/
+:root {
+  --rd-bg: #1a1b26;
+  --rd-bg-highlight: #16161e;
+  --rd-border-hint: #24252d;
+  --rd-fg: #f9f9fb;
+  --rd-fg-low: #d9d9db;
+  --rd-fg-dim: #9b9bb1;
+  --rd-pink: #99f9d9;
+  --rd-cyan: #bbeeff;
+  --rd-green: #77dd77;
+  --rd-yellow: #ffff99;
+  --rd-blue: #9999ff;
+}
+
+html, body {
+  font-family: $font-family-sans-serif;
+  background-color: var(--rd-bg);
+  color: var(--rd-fg);
+}
+
+p, li, td, th, table, blockquote {
+  font-family: $font-family-sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family-sans-serif;
+  font-weight: 700;
+}
+
+h1 {
+  text-transform: uppercase;
+  color: var(--rd-pink);
+}
+
+h2 {
+  color: var(--rd-pink);
+  margin-left: 0.5rem;
+}
+
+h3 {
+  color: var(--rd-pink);
+  margin-left: 1rem;
+}
+
+h4 {
+  font-weight: 400;
+  text-decoration: underline;
+  margin-left: 1.5rem;
+}
+
+h5, h6 {
+  margin-left: 2rem;
+}
+
+a {
+  color: var(--rd-fg-low);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--rd-fg-dim);
+}
+a:hover {
+  color: var(--rd-fg);
+  border-bottom-color: var(--rd-fg);
+}
+
+/* Nerd Font glyphs used as list icons (see index.qmd) */
+.nf {
+  font-family: "JetBrainsMono Nerd Font", "Hack Nerd Font Mono", "Symbols Nerd Font", monospace;
+  color: var(--rd-pink);
+  margin-right: 0.35rem;
+  display: inline-block;
+}
+
+.navbar {
+  background-color: var(--rd-bg) !important;
+  border-bottom: 1px solid var(--rd-border-hint);
+}
+.navbar a.nav-link, .navbar-title {
+  font-family: $font-family-sans-serif;
+  color: var(--rd-fg-low) !important;
+  border-bottom: none;
+}
+.navbar a.nav-link:hover {
+  color: var(--rd-pink) !important;
+}
+
+/* Always keep the nav in one horizontal row (never collapse to a mobile stack) */
+.navbar-expand-lg .navbar-toggler {
+  display: none !important;
+}
+.navbar-expand-lg .navbar-collapse {
+  display: flex !important;
+  flex-basis: auto;
+}
+.navbar-nav {
+  flex-direction: row !important;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+}
+.navbar-nav .nav-item {
+  width: auto;
+}
+.navbar-container.container-fluid {
+  flex-wrap: wrap;
+}
+
+/* Active page: solid pink pill, like radicle.dev's "Get started" CTA */
+.navbar-nav.me-auto a.nav-link.active {
+  background-color: var(--rd-pink);
+  color: var(--rd-bg) !important;
+  border-radius: 999px;
+  padding: 0.35rem 1rem !important;
+  font-weight: 700;
+}
+.navbar-nav.me-auto a.nav-link.active:hover {
+  background-color: var(--rd-fg) !important;
+  color: var(--rd-bg) !important;
+}
+
+/* On-page TOC: highlight the section currently in view (scrollspy) */
+#TOC.toc-active a.nav-link,
+nav[role="doc-toc"] ul > li > a {
+  color: var(--rd-fg-low);
+  border-left: 2px solid transparent;
+  padding-left: 0.5rem;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+#TOC.toc-active a.nav-link.active,
+nav[role="doc-toc"] ul > li > a.active {
+  color: var(--rd-pink) !important;
+  font-weight: 600;
+  border-left-color: var(--rd-pink);
+}
+
+/* External CTAs (GitHub, email): solid blue pill, like radicle.dev's "Run a seed" */
+.navbar-nav.ms-auto .nav-link {
+  background-color: var(--rd-blue);
+  color: var(--rd-bg) !important;
+  border-radius: 999px;
+  padding: 0.35rem 0.85rem !important;
+  margin: 0 0.15rem;
+}
+.navbar-nav.ms-auto .nav-link:hover {
+  background-color: var(--rd-fg) !important;
+  color: var(--rd-bg) !important;
+}
+
+.navbar-nav.ms-auto a.nav-link[href="https://github.com/guilber-c"] {
+  box-sizing: border-box;
+  padding: 0 !important;
+  margin: 0 0.15rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  flex: 0 0 2.4rem;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.navbar-avatar {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  box-sizing: border-box;
+  border: 2px solid var(--rd-blue);
+}
+
+.btn, .button {
+  font-family: $font-family-sans-serif;
+  border-radius: 0;
+  border: 1px dashed var(--rd-pink);
+  background-color: transparent;
+  color: var(--rd-pink);
+}
+.btn:hover, .button:hover {
+  background-color: var(--rd-pink);
+  color: var(--rd-bg);
+}
+
+blockquote {
+  border-left: 1px dashed var(--rd-border-hint);
+  color: var(--rd-fg-dim);
+  padding-left: 1rem;
+}
+
+hr {
+  border: none;
+  border-bottom: 1px solid var(--rd-border-hint);
+}
+
+table {
+  border: 1px dashed var(--rd-border-hint);
+  border-collapse: collapse;
+}
+th {
+  font-weight: 700;
+  border-bottom: 1px solid var(--rd-fg-dim);
+}
+td, th {
+  padding: 0.5rem 1rem;
+}
+tbody tr:nth-child(even) td {
+  background-color: var(--rd-bg-highlight);
+}
+
+code, pre {
+  font-family: $font-family-monospace;
+  color: var(--rd-fg);
+  background-color: var(--rd-bg-highlight);
+  border-radius: 0;
+}
+
+pre.sourceCode,
+div.sourceCode pre.sourceCode {
+  border: 1px dashed var(--rd-border-hint) !important;
+}
+
+img.screenshot, img {
+  border-radius: 0;
+}
+
+/* Syntax highlighting (Radicle-inspired) */
+code span { color: var(--rd-fg) !important; }
+
+/* Comment / Documentation / CommentVar / Information */
+code span.co, code span.do, code span.cv, code span.in {
+  color: var(--rd-fg-dim) !important;
+  font-style: italic;
+}
+
+/* Function / Extension / Import */
+code span.fu, code span.ex, code span.im {
+  color: var(--rd-pink) !important;
+}
+
+/* Attribute (named arguments) / Variable / Other */
+code span.at, code span.va, code span.ot {
+  color: var(--rd-yellow) !important;
+}
+
+/* String / Char / SpecialString / VerbatimString */
+code span.st, code span.ch, code span.ss, code span.vs {
+  color: var(--rd-green) !important;
+}
+
+/* DecVal / BaseN / Float / Constant */
+code span.dv, code span.bn, code span.fl, code span.cn {
+  color: var(--rd-blue) !important;
+}
+
+/* ControlFlow / Keyword */
+code span.cf, code span.kw {
+  color: var(--rd-cyan) !important;
+  font-weight: normal;
+}
+
+/* Operator / SpecialChar */
+code span.op, code span.sc {
+  color: var(--rd-fg-low) !important;
+}
+
+/* DataType / BuiltIn */
+code span.dt, code span.bu {
+  color: var(--rd-blue) !important;
+}
+
+/* Preprocessor / Annotation */
+code span.pp, code span.an {
+  color: var(--rd-cyan) !important;
+}
+
+/* Alert / Error / Warning */
+code span.al, code span.er, code span.wa {
+  color: #ff7799 !important;
+  text-decoration: none;
+}
+
+/* Custom scrollbar (Webkit: Chrome, Edge, Safari) */
+pre, code, div.sourceCode {
+  scrollbar-width: thin;
+  scrollbar-color: var(--rd-border-hint) var(--rd-bg);
+}
+
+pre::-webkit-scrollbar,
+code::-webkit-scrollbar,
+div.sourceCode::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+pre::-webkit-scrollbar-track,
+code::-webkit-scrollbar-track,
+div.sourceCode::-webkit-scrollbar-track {
+  background: var(--rd-bg);
+}
+
+pre::-webkit-scrollbar-thumb,
+code::-webkit-scrollbar-thumb,
+div.sourceCode::-webkit-scrollbar-thumb {
+  background-color: var(--rd-border-hint);
+  border-radius: 0;
+}
+
+pre::-webkit-scrollbar-thumb:hover,
+code::-webkit-scrollbar-thumb:hover,
+div.sourceCode::-webkit-scrollbar-thumb:hover {
+  background-color: var(--rd-fg-dim);
+}

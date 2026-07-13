@@ -1,0 +1,12 @@
+---
+title: "Building Effective Agents"
+author: "Guilber"
+date: 2026-04-10
+categories: [Article, AI, Agents]
+---
+
+Notes on Anthropic's "Building Effective Agents" engineering post — workflows vs. agents, and when to reach for each pattern.
+
+::: {.callout-note}
+Replace this with your actual notes/summary.
+:::

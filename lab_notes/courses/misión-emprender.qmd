@@ -1,0 +1,12 @@
+---
+title: "Misión Emprender"
+author: "Guilber"
+date: 2026-05-20
+categories: [Course, Entrepreneurship]
+---
+
+Notes from the Misión Emprender course.
+
+::: {.callout-note}
+Replace this with your actual course notes.
+:::

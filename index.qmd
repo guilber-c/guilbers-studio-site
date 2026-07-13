@@ -1,0 +1,30 @@
+---
+title: "Home"
+---
+
+## Hi, I'm Guilber
+
+Welcome to my corner of the web. This site collects my [lab_notes](lab_notes/index.qmd), [projects](projects.qmd), and [portfolio](portfolio.qmd) work.
+
+- <span class="nf"></span> **[Lab Notes](lab_notes/index.qmd)** — experiments to apply what I learned in books, courses, and articles.
+- <span class="nf"></span> **[Projects](projects.qmd)** — things I'm building.
+- <span class="nf">󰀻</span> **[Portfolio](portfolio.qmd)** — some selected work.
+- <span class="nf">󰯾</span> **[About](about.qmd)** — who I am.
+
+## Test `ggplot2`
+
+```{r}
+library(ggplot2)
+source("theme_radicle_night.R")
+
+# This is a comment
+ggplot(mpg, aes(x = displ, y = hwy, color = class)) +
+  geom_point(size = 3) +
+  labs(
+    title = "Engine Displacement vs Highway MPG",
+    x = "Displacement (L)",
+    y = "Highway MPG"
+  ) +
+  scale_color_radicle_night() +
+  theme_radicle_night()
+```

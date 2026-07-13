@@ -1,0 +1,12 @@
+---
+title: "Descriptive Statistics — Rincón"
+author: "Guilber"
+date: 2026-06-15
+categories: [Book, Statistics]
+---
+
+Notes on the descriptive statistics chapters from Luis Rincón's probability and statistics textbook.
+
+::: {.callout-note}
+Replace this with your actual reading notes.
+:::

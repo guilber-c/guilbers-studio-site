@@ -1,0 +1,23 @@
+/* Listing pages: category filter pills (Radicle-inspired) */
+.quarto-listing-category .category {
+  color: #d9d9db;
+}
+
+.quarto-listing-category .category.active {
+  color: #bbeeff;
+  font-weight: 600;
+}
+
+.quarto-listing .listing-categories .listing-category {
+  border: 1px dashed #24252d;
+  border-radius: 0;
+  background-color: #16161e;
+  color: #f9f9fb;
+}
+
+.quarto-listing .listing-categories .listing-category:hover,
+.quarto-listing .listing-categories .listing-category.active {
+  background-color: #16161e;
+  border-color: #99f9d9;
+  color: #99f9d9;
+}

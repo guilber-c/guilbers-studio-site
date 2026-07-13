@@ -1,0 +1,22 @@
+---
+title: "Lab Notes"
+page-layout: full
+title-block-banner: false
+listing:
+  id: all-notes
+  contents:
+    - "books/*.qmd"
+    - "courses/*.qmd"
+    - "articles/*.qmd"
+    - "!books/index.qmd"
+    - "!courses/index.qmd"
+    - "!articles/index.qmd"
+  type: table
+  categories: true
+  sort: "date desc"
+  fields: [title, categories, date]
+---
+
+Everything I've read, taken a course on, or found worth writing down — filterable by type (Book / Course / Article) and topic below.
+
+Browse by section: [Books](books/index.qmd) · [Courses](courses/index.qmd) · [Articles](articles/index.qmd)

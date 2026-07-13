@@ -1,0 +1,306 @@
+---
+title: "Building a Net Worth Tracker with R + Shiny"
+author: "Guilber"
+date: 2026-07-10
+categories: [Article, R, Shiny, Finance]
+---
+
+## Source
+
+[Organizing Personal Finances](https://www.invest-safely.com/organizing-personal-finances.html) — invest-safely.com
+
+## The framework
+
+The article organizes personal finances around Robert Kiyosaki's cashflow model — two statements, not one:
+
+- **Income Statement**: earned income vs. expenses.
+- **Balance Sheet**: assets vs. liabilities.
+
+It splits assets into two flavors that matter a lot more than their dollar value:
+
+- **Personal-use assets** — house you live in, car you drive. They don't generate cashflow.
+- **Income-generating assets** — rentals, dividend stocks, businesses, royalties. These pay you.
+
+And it frames four cashflow patterns as stages, not labels:
+
+| Stage | Pattern |
+|---|---|
+| Poor | Earned income, spent almost immediately on consumption |
+| Middle Class | Earned income, offset by liabilities (mortgage, car loans, credit cards) |
+| Rich | Earned income + growing passive/portfolio income from income-generating assets |
+| Wealthy | Passive/portfolio income alone covers all expenses — earned income becomes optional |
+
+The mechanism for moving up a stage isn't "earn more," it's **directing leftover cashflow into income-generating assets instead of liabilities or consumption**. That's the number worth tracking over time, which is why net worth alone is an incomplete picture — the *composition* of assets matters as much as the total.
+
+The two statements connect through cashflow — this is the diagram the article is describing in words:
+
+```{mermaid}
+%%{init: {'theme': 'base', 'themeVariables': {
+  'darkMode': true, 'background': '#1a1b26',
+  'primaryColor': '#24252d', 'primaryTextColor': '#f9f9fb', 'primaryBorderColor': '#9b9bb1',
+  'lineColor': '#9b9bb1', 'edgeLabelBackground': '#16161e'
+}}}%%
+flowchart TB
+    EI[Earned Income] --> CF{{Monthly Cashflow}}
+    PI[Passive / Portfolio Income] --> CF
+    CF --> EX[Expenses]
+    CF -->|leftover, good direction| IGA[Income-generating Assets]
+    CF -->|leftover, bad direction| LIA[Liabilities]
+    IGA -.pays back.-> PI
+    LIA -.demands more.-> EX
+    PUA[Personal-use Assets] -.no cashflow.-> CF
+
+    style EI fill:#24252d,stroke:#9b9bb1,color:#f9f9fb
+    style PI fill:#24252d,stroke:#9b9bb1,color:#f9f9fb
+    style CF fill:#16161e,stroke:#bbeeff,color:#bbeeff
+    style EX fill:#24252d,stroke:#9b9bb1,color:#f9f9fb
+    style IGA fill:#99f9d9,stroke:#1a1b26,color:#1a1b26
+    style LIA fill:#f999f9,stroke:#1a1b26,color:#1a1b26
+    style PUA fill:#24252d,stroke:#9b9bb1,color:#f9f9fb
+```
+
+Leftover cashflow routed into income-generating assets compounds back into passive income (closing the loop on the left); routed into liabilities it compounds into more expenses instead (closing the loop on the right). Same dollar, opposite direction. The four stages are just how far along that left-hand loop someone is:
+
+```{mermaid}
+%%{init: {'theme': 'base', 'themeVariables': {
+  'darkMode': true, 'background': '#1a1b26',
+  'primaryColor': '#24252d', 'primaryTextColor': '#f9f9fb', 'primaryBorderColor': '#9b9bb1',
+  'lineColor': '#9b9bb1', 'edgeLabelBackground': '#16161e'
+}}}%%
+flowchart LR
+    Poor -->|"cut consumption"| MC[Middle Class]
+    MC -->|"redirect leftover cashflow\nfrom liabilities to assets"| Rich
+    Rich -->|"passive income > expenses"| Wealthy
+
+    style Poor fill:#24252d,stroke:#9b9bb1,color:#f9f9fb
+    style MC fill:#9999ff,stroke:#1a1b26,color:#1a1b26
+    style Rich fill:#bbeeff,stroke:#1a1b26,color:#1a1b26
+    style Wealthy fill:#99f9d9,stroke:#1a1b26,color:#1a1b26
+```
+
+The source article doesn't prescribe a spreadsheet or tool — it points at the board game *Cashflow 101* as a way to internalize the pattern. Below is a step-by-step for turning the same framework into an actual R/Shiny tracker.
+
+## What the tracker needs to capture
+
+Net worth alone hides the story. The app should track, per entry:
+
+- **Date** — net worth is a time series, not a snapshot.
+- **Type** — `Asset` or `Liability`.
+- **Asset subtype** — `Income-generating` or `Personal-use` (only applies to assets). This is what lets the app show progress toward the "Rich" stage, not just a bigger number.
+- **Category** — e.g. Cash, Investments, Real Estate (rental vs. primary residence), Vehicle, Credit Card, Mortgage, Student Loan.
+- **Description** and **Value**.
+
+Net worth = sum(assets) − sum(liabilities). The more interesting derived metric is **% of net worth in income-generating assets**, since that's the Kiyosaki-stage indicator.
+
+## App architecture
+
+How an entry travels from the sidebar form to the three output tabs:
+
+```{mermaid}
+%%{init: {'theme': 'base', 'themeVariables': {
+  'darkMode': true, 'background': '#1a1b26',
+  'primaryColor': '#24252d', 'primaryTextColor': '#f9f9fb', 'primaryBorderColor': '#9b9bb1',
+  'lineColor': '#9b9bb1', 'edgeLabelBackground': '#16161e'
+}}}%%
+flowchart LR
+    UI["Sidebar form\n(date, type, subtype, category, value)"] -->|dbExecute INSERT| DB[(SQLite\nentries table)]
+    DB -->|dbReadTable| RE["reactiveVal: entries()"]
+    RE --> NW["net_worth_by_date()"]
+    RE --> PCT["pct_income_generating()"]
+    RE --> LED["Ledger tab (DT)"]
+    NW --> TR["Overview tab:\nnet worth trend"]
+    PCT --> CO["Composition tab:\nasset pie chart"]
+
+    style UI fill:#24252d,stroke:#9b9bb1,color:#f9f9fb
+    style DB fill:#24252d,stroke:#9b9bb1,color:#f9f9fb
+    style RE fill:#9999ff,stroke:#1a1b26,color:#1a1b26
+    style NW fill:#16161e,stroke:#bbeeff,color:#bbeeff
+    style PCT fill:#16161e,stroke:#bbeeff,color:#bbeeff
+    style LED fill:#24252d,stroke:#9b9bb1,color:#f9f9fb
+    style TR fill:#24252d,stroke:#9b9bb1,color:#f9f9fb
+    style CO fill:#24252d,stroke:#9b9bb1,color:#f9f9fb
+```
+
+Everything downstream of `entries()` is a pure transformation of the same table — the trend chart, the composition pie, and the ledger never talk to SQLite directly, only to that one reactive. That's what step 4 below sets up.
+
+## Step by step
+
+### 1. Project setup
+
+```r
+# from the notes/ project root, or wherever you want the tracker to live
+usethis::create_project("net_worth_tracker")
+```
+
+```r
+install.packages(c(
+  "shiny", "bslib", "DT", "tidyverse",
+  "DBI", "RSQLite", "plotly", "shinyWidgets"
+))
+```
+
+Use `renv::init()` if you want the environment pinned — worth it for anything you'll keep adding data to over months.
+
+### 2. Data model and persistence
+
+SQLite over CSV: it survives concurrent writes better and makes querying by date range trivial. One table is enough.
+
+```r
+library(DBI)
+library(RSQLite)
+
+con <- dbConnect(SQLite(), "net_worth.sqlite")
+
+dbExecute(con, "
+  CREATE TABLE IF NOT EXISTS entries (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    entry_date TEXT NOT NULL,
+    type TEXT NOT NULL CHECK (type IN ('Asset', 'Liability')),
+    subtype TEXT CHECK (subtype IN ('Income-generating', 'Personal-use') OR subtype IS NULL),
+    category TEXT NOT NULL,
+    description TEXT,
+    value REAL NOT NULL
+  )
+")
+```
+
+`subtype` is nullable because it only applies to assets — liabilities don't get it.
+
+### 3. App skeleton
+
+```r
+# app.R
+library(shiny)
+library(bslib)
+library(DT)
+library(dplyr)
+library(plotly)
+library(DBI)
+library(RSQLite)
+
+con <- dbConnect(SQLite(), "net_worth.sqlite")
+
+ui <- page_sidebar(
+  title = "Net Worth Tracker",
+  theme = bs_theme(bootswatch = "darkly"),
+  sidebar = sidebar(
+    dateInput("entry_date", "Date", value = Sys.Date()),
+    radioButtons("type", "Type", choices = c("Asset", "Liability")),
+    conditionalPanel(
+      "input.type == 'Asset'",
+      radioButtons("subtype", "Subtype",
+                   choices = c("Income-generating", "Personal-use"))
+    ),
+    textInput("category", "Category"),
+    textInput("description", "Description"),
+    numericInput("value", "Value", value = 0, min = 0),
+    actionButton("add", "Add entry", class = "btn-primary")
+  ),
+  navset_tab(
+    nav_panel("Overview", uiOutput("summary_cards"), plotlyOutput("networth_trend")),
+    nav_panel("Composition", plotlyOutput("asset_composition")),
+    nav_panel("Ledger", DTOutput("ledger"))
+  )
+)
+```
+
+### 4. Server logic — writing entries
+
+```r
+server <- function(input, output, session) {
+
+  observeEvent(input$add, {
+    subtype <- if (input$type == "Asset") input$subtype else NA
+
+    dbExecute(con, "
+      INSERT INTO entries (entry_date, type, subtype, category, description, value)
+      VALUES (?, ?, ?, ?, ?, ?)",
+      params = list(
+        as.character(input$entry_date), input$type, subtype,
+        input$category, input$description, input$value
+      )
+    )
+
+    entries(dbReadTable(con, "entries"))  # refresh reactive below
+  })
+
+  entries <- reactiveVal(dbReadTable(con, "entries"))
+```
+
+### 5. Server logic — the numbers that matter
+
+```r
+  net_worth_by_date <- reactive({
+    entries() |>
+      mutate(
+        signed_value = if_else(type == "Asset", value, -value),
+        entry_date = as.Date(entry_date)
+      ) |>
+      arrange(entry_date) |>
+      group_by(entry_date) |>
+      summarise(delta = sum(signed_value), .groups = "drop") |>
+      mutate(net_worth = cumsum(delta))
+  })
+
+  pct_income_generating <- reactive({
+    df <- entries() |> filter(type == "Asset")
+    if (nrow(df) == 0) return(0)
+    ig <- sum(df$value[df$subtype == "Income-generating"])
+    ig / sum(df$value)
+  })
+```
+
+`pct_income_generating` is the Kiyosaki-stage signal from the article — rising over time means cashflow is going into assets that pay you, not just accumulating stuff or debt.
+
+### 6. Visualizations
+
+```r
+  output$networth_trend <- renderPlotly({
+    p <- ggplot(net_worth_by_date(), aes(entry_date, net_worth)) +
+      geom_line(color = "#99f9d9", linewidth = 1) +
+      geom_point(color = "#99f9d9") +
+      labs(x = NULL, y = "Net Worth", title = "Net worth over time")
+    ggplotly(p)
+  })
+
+  output$asset_composition <- renderPlotly({
+    df <- entries() |>
+      filter(type == "Asset") |>
+      group_by(subtype) |>
+      summarise(total = sum(value), .groups = "drop")
+
+    plot_ly(df, labels = ~subtype, values = ~total, type = "pie",
+            marker = list(colors = c("#99f9d9", "#9999ff")))
+  })
+```
+
+Reuse [`theme_radicle_night.R`](../../theme_radicle_night.R) and its palette here (`scale_color_radicle_night()`, `scale_fill_radicle_night()`) if you're plotting with base `ggplot2` instead of `plotly` directly — keeps it visually consistent with the rest of this site.
+
+### 7. Ledger view
+
+```r
+  output$ledger <- renderDT({
+    datatable(entries(), options = list(order = list(list(1, "desc"))))
+  })
+}
+
+shinyApp(ui, server)
+```
+
+### 8. Running it
+
+```r
+shiny::runApp("net_worth_tracker")
+```
+
+For anything beyond local use, `rsconnect::deployApp()` to shinyapps.io keeps it reachable from a phone for monthly updates — a tracker only works if updating it takes under a minute.
+
+### 9. Extending later
+
+- **Snapshots vs. transactions**: the model above stores every entry as a delta. An alternative is snapshotting total asset/liability values monthly — simpler net worth math, but you lose the "what changed" detail. Pick one; don't mix them.
+- **Multiple currencies**: add a `currency` column and convert at read time with a fixed or fetched exchange rate — don't store converted values.
+- **Goals**: a horizontal `geom_hline` on the trend chart for a target net worth, or a target `pct_income_generating`, turns the app from a ledger into a scoreboard.
+
+::: {.callout-note}
+This is a build plan, not a finished app — swap in your own categories and run the `CREATE TABLE` once to get started.
+:::
