@@ -39,28 +39,21 @@
     "href": "index.html",
     "title": "Home",
     "section": "",
-    "text": "Welcome to my corner of the web. This site collects my lab_notes, projects, and portfolio work.\n\n Lab Notes — experiments to apply what I learned in books, courses, and articles.\n Projects — things I’m building.\n󰀻 Portfolio — some selected work.\n󰯾 About — who I am."
+    "text": "Welcome to my corner of the web. This site collects my lab_notes, projects, and portfolio work.\n\n Lab Notes — experiments to validate and apply what I’m studying in books, courses, and more.\n Projects — things I’m building.\n󰀻 Portfolio — some selected work.\n󰯾 About — who I am."
   },
   {
     "objectID": "index.html#hi-im-guilber",
     "href": "index.html#hi-im-guilber",
     "title": "Home",
     "section": "",
-    "text": "Welcome to my corner of the web. This site collects my lab_notes, projects, and portfolio work.\n\n Lab Notes — experiments to apply what I learned in books, courses, and articles.\n Projects — things I’m building.\n󰀻 Portfolio — some selected work.\n󰯾 About — who I am."
-  },
-  {
-    "objectID": "index.html#test-ggplot2",
-    "href": "index.html#test-ggplot2",
-    "title": "Home",
-    "section": "Test ggplot2",
-    "text": "Test ggplot2\n\nlibrary(ggplot2)\nsource(\"theme_radicle_night.R\")\n\n# This is a comment\nggplot(mpg, aes(x = displ, y = hwy, color = class)) +\n  geom_point(size = 3) +\n  labs(\n    title = \"Engine Displacement vs Highway MPG\",\n    x = \"Displacement (L)\",\n    y = \"Highway MPG\"\n  ) +\n  scale_color_radicle_night() +\n  theme_radicle_night()"
+    "text": "Welcome to my corner of the web. This site collects my lab_notes, projects, and portfolio work.\n\n Lab Notes — experiments to validate and apply what I’m studying in books, courses, and more.\n Projects — things I’m building.\n󰀻 Portfolio — some selected work.\n󰯾 About — who I am."
   },
   {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "Hi, I’m Guilber. Add a short bio here — background, interests, what you’re currently working on.\nYou can reach me at guilber.tech@proton.me."
+    "text": "Hi, I’m Guilber. I like to apply and share knowledge in my everyday life to improve myself and the world around me.\nYou can reach me at guilber.tech@proton.me."
   },
   {
     "objectID": "lab_notes/articles/building-effective-agents.html",
