@@ -1,0 +1,135 @@
+[
+  {
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "Projects",
+    "section": "",
+    "text": "A selection of things I’m building.\n\n\n\n\n\n\nNote\n\n\n\nFill this page in with your projects — each one could be a short card/section here, or its own .qmd with a link."
+  },
+  {
+    "objectID": "lab_notes/index.html",
+    "href": "lab_notes/index.html",
+    "title": "Lab Notes",
+    "section": "",
+    "text": "Everything I’ve read, taken a course on, or found worth writing down — filterable by type (Book / Course / Article) and topic below.\nBrowse by section: Books · Courses · Articles\n\n\n\n\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitle\n\n\n\nCategories\n\n\n\nDate\n\n\n\n\n\n\n\n\nBuilding a Net Worth Tracker with R + Shiny\n\n\nArticle, R, Shiny, Finance\n\n\nJul 10, 2026\n\n\n\n\n\n\nDescriptive Statistics — Rincón\n\n\nBook, Statistics\n\n\nJun 15, 2026\n\n\n\n\n\n\nMisión Emprender\n\n\nCourse, Entrepreneurship\n\n\nMay 20, 2026\n\n\n\n\n\n\nBuilding Effective Agents\n\n\nArticle, AI, Agents\n\n\nApr 10, 2026\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "lab_notes/courses/index.html",
+    "href": "lab_notes/courses/index.html",
+    "title": "Courses",
+    "section": "",
+    "text": "Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitle\n\n\n\nCategories\n\n\n\nDate\n\n\n\n\n\n\n\n\nMisión Emprender\n\n\nCourse, Entrepreneurship\n\n\nMay 20, 2026\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "lab_notes/books/descriptive-stats-rincon.html",
+    "href": "lab_notes/books/descriptive-stats-rincon.html",
+    "title": "Descriptive Statistics — Rincón",
+    "section": "",
+    "text": "Notes on the descriptive statistics chapters from Luis Rincón’s probability and statistics textbook.\n\n\n\n\n\n\nNote\n\n\n\nReplace this with your actual reading notes."
+  },
+  {
+    "objectID": "lab_notes/articles/index.html",
+    "href": "lab_notes/articles/index.html",
+    "title": "Articles",
+    "section": "",
+    "text": "Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitle\n\n\n\nCategories\n\n\n\nDate\n\n\n\n\n\n\n\n\nBuilding a Net Worth Tracker with R + Shiny\n\n\nArticle, R, Shiny, Finance\n\n\nJul 10, 2026\n\n\n\n\n\n\nBuilding Effective Agents\n\n\nArticle, AI, Agents\n\n\nApr 10, 2026\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Home",
+    "section": "",
+    "text": "Welcome to my corner of the web. This site collects my lab_notes, projects, and portfolio work.\n\n Lab Notes — experiments to apply what I learned in books, courses, and articles.\n Projects — things I’m building.\n󰀻 Portfolio — some selected work.\n󰯾 About — who I am."
+  },
+  {
+    "objectID": "index.html#hi-im-guilber",
+    "href": "index.html#hi-im-guilber",
+    "title": "Home",
+    "section": "",
+    "text": "Welcome to my corner of the web. This site collects my lab_notes, projects, and portfolio work.\n\n Lab Notes — experiments to apply what I learned in books, courses, and articles.\n Projects — things I’m building.\n󰀻 Portfolio — some selected work.\n󰯾 About — who I am."
+  },
+  {
+    "objectID": "index.html#test-ggplot2",
+    "href": "index.html#test-ggplot2",
+    "title": "Home",
+    "section": "Test ggplot2",
+    "text": "Test ggplot2\n\nlibrary(ggplot2)\nsource(\"theme_radicle_night.R\")\n\n# This is a comment\nggplot(mpg, aes(x = displ, y = hwy, color = class)) +\n  geom_point(size = 3) +\n  labs(\n    title = \"Engine Displacement vs Highway MPG\",\n    x = \"Displacement (L)\",\n    y = \"Highway MPG\"\n  ) +\n  scale_color_radicle_night() +\n  theme_radicle_night()"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Hi, I’m Guilber. Add a short bio here — background, interests, what you’re currently working on.\nYou can reach me at guilber.tech@proton.me."
+  },
+  {
+    "objectID": "lab_notes/articles/building-effective-agents.html",
+    "href": "lab_notes/articles/building-effective-agents.html",
+    "title": "Building Effective Agents",
+    "section": "",
+    "text": "Notes on Anthropic’s “Building Effective Agents” engineering post — workflows vs. agents, and when to reach for each pattern.\n\n\n\n\n\n\nNote\n\n\n\nReplace this with your actual notes/summary."
+  },
+  {
+    "objectID": "lab_notes/articles/net-worth-tracker-shiny.html",
+    "href": "lab_notes/articles/net-worth-tracker-shiny.html",
+    "title": "Building a Net Worth Tracker with R + Shiny",
+    "section": "",
+    "text": "Organizing Personal Finances — invest-safely.com"
+  },
+  {
+    "objectID": "lab_notes/articles/net-worth-tracker-shiny.html#source",
+    "href": "lab_notes/articles/net-worth-tracker-shiny.html#source",
+    "title": "Building a Net Worth Tracker with R + Shiny",
+    "section": "",
+    "text": "Organizing Personal Finances — invest-safely.com"
+  },
+  {
+    "objectID": "lab_notes/articles/net-worth-tracker-shiny.html#the-framework",
+    "href": "lab_notes/articles/net-worth-tracker-shiny.html#the-framework",
+    "title": "Building a Net Worth Tracker with R + Shiny",
+    "section": "The framework",
+    "text": "The framework\nThe article organizes personal finances around Robert Kiyosaki’s cashflow model — two statements, not one:\n\nIncome Statement: earned income vs. expenses.\nBalance Sheet: assets vs. liabilities.\n\nIt splits assets into two flavors that matter a lot more than their dollar value:\n\nPersonal-use assets — house you live in, car you drive. They don’t generate cashflow.\nIncome-generating assets — rentals, dividend stocks, businesses, royalties. These pay you.\n\nAnd it frames four cashflow patterns as stages, not labels:\n\n\n\n\n\n\n\nStage\nPattern\n\n\n\n\nPoor\nEarned income, spent almost immediately on consumption\n\n\nMiddle Class\nEarned income, offset by liabilities (mortgage, car loans, credit cards)\n\n\nRich\nEarned income + growing passive/portfolio income from income-generating assets\n\n\nWealthy\nPassive/portfolio income alone covers all expenses — earned income becomes optional\n\n\n\nThe mechanism for moving up a stage isn’t “earn more,” it’s directing leftover cashflow into income-generating assets instead of liabilities or consumption. That’s the number worth tracking over time, which is why net worth alone is an incomplete picture — the composition of assets matters as much as the total.\nThe two statements connect through cashflow — this is the diagram the article is describing in words:\n\n\n\n\n\n%%{init: {'theme': 'base', 'themeVariables': {\n  'darkMode': true, 'background': '#1a1b26',\n  'primaryColor': '#24252d', 'primaryTextColor': '#f9f9fb', 'primaryBorderColor': '#9b9bb1',\n  'lineColor': '#9b9bb1', 'edgeLabelBackground': '#16161e'\n}}}%%\nflowchart TB\n    EI[Earned Income] --&gt; CF{{Monthly Cashflow}}\n    PI[Passive / Portfolio Income] --&gt; CF\n    CF --&gt; EX[Expenses]\n    CF --&gt;|leftover, good direction| IGA[Income-generating Assets]\n    CF --&gt;|leftover, bad direction| LIA[Liabilities]\n    IGA -.pays back.-&gt; PI\n    LIA -.demands more.-&gt; EX\n    PUA[Personal-use Assets] -.no cashflow.-&gt; CF\n\n    style EI fill:#24252d,stroke:#9b9bb1,color:#f9f9fb\n    style PI fill:#24252d,stroke:#9b9bb1,color:#f9f9fb\n    style CF fill:#16161e,stroke:#bbeeff,color:#bbeeff\n    style EX fill:#24252d,stroke:#9b9bb1,color:#f9f9fb\n    style IGA fill:#99f9d9,stroke:#1a1b26,color:#1a1b26\n    style LIA fill:#f999f9,stroke:#1a1b26,color:#1a1b26\n    style PUA fill:#24252d,stroke:#9b9bb1,color:#f9f9fb\n\n\n\n\n\n\nLeftover cashflow routed into income-generating assets compounds back into passive income (closing the loop on the left); routed into liabilities it compounds into more expenses instead (closing the loop on the right). Same dollar, opposite direction. The four stages are just how far along that left-hand loop someone is:\n\n\n\n\n\n%%{init: {'theme': 'base', 'themeVariables': {\n  'darkMode': true, 'background': '#1a1b26',\n  'primaryColor': '#24252d', 'primaryTextColor': '#f9f9fb', 'primaryBorderColor': '#9b9bb1',\n  'lineColor': '#9b9bb1', 'edgeLabelBackground': '#16161e'\n}}}%%\nflowchart LR\n    Poor --&gt;|\"cut consumption\"| MC[Middle Class]\n    MC --&gt;|\"redirect leftover cashflow\\nfrom liabilities to assets\"| Rich\n    Rich --&gt;|\"passive income &gt; expenses\"| Wealthy\n\n    style Poor fill:#24252d,stroke:#9b9bb1,color:#f9f9fb\n    style MC fill:#9999ff,stroke:#1a1b26,color:#1a1b26\n    style Rich fill:#bbeeff,stroke:#1a1b26,color:#1a1b26\n    style Wealthy fill:#99f9d9,stroke:#1a1b26,color:#1a1b26\n\n\n\n\n\n\nThe source article doesn’t prescribe a spreadsheet or tool — it points at the board game Cashflow 101 as a way to internalize the pattern. Below is a step-by-step for turning the same framework into an actual R/Shiny tracker."
+  },
+  {
+    "objectID": "lab_notes/articles/net-worth-tracker-shiny.html#what-the-tracker-needs-to-capture",
+    "href": "lab_notes/articles/net-worth-tracker-shiny.html#what-the-tracker-needs-to-capture",
+    "title": "Building a Net Worth Tracker with R + Shiny",
+    "section": "What the tracker needs to capture",
+    "text": "What the tracker needs to capture\nNet worth alone hides the story. The app should track, per entry:\n\nDate — net worth is a time series, not a snapshot.\nType — Asset or Liability.\nAsset subtype — Income-generating or Personal-use (only applies to assets). This is what lets the app show progress toward the “Rich” stage, not just a bigger number.\nCategory — e.g. Cash, Investments, Real Estate (rental vs. primary residence), Vehicle, Credit Card, Mortgage, Student Loan.\nDescription and Value.\n\nNet worth = sum(assets) − sum(liabilities). The more interesting derived metric is % of net worth in income-generating assets, since that’s the Kiyosaki-stage indicator."
+  },
+  {
+    "objectID": "lab_notes/articles/net-worth-tracker-shiny.html#app-architecture",
+    "href": "lab_notes/articles/net-worth-tracker-shiny.html#app-architecture",
+    "title": "Building a Net Worth Tracker with R + Shiny",
+    "section": "App architecture",
+    "text": "App architecture\nHow an entry travels from the sidebar form to the three output tabs:\n\n\n\n\n\n%%{init: {'theme': 'base', 'themeVariables': {\n  'darkMode': true, 'background': '#1a1b26',\n  'primaryColor': '#24252d', 'primaryTextColor': '#f9f9fb', 'primaryBorderColor': '#9b9bb1',\n  'lineColor': '#9b9bb1', 'edgeLabelBackground': '#16161e'\n}}}%%\nflowchart LR\n    UI[\"Sidebar form\\n(date, type, subtype, category, value)\"] --&gt;|dbExecute INSERT| DB[(SQLite\\nentries table)]\n    DB --&gt;|dbReadTable| RE[\"reactiveVal: entries()\"]\n    RE --&gt; NW[\"net_worth_by_date()\"]\n    RE --&gt; PCT[\"pct_income_generating()\"]\n    RE --&gt; LED[\"Ledger tab (DT)\"]\n    NW --&gt; TR[\"Overview tab:\\nnet worth trend\"]\n    PCT --&gt; CO[\"Composition tab:\\nasset pie chart\"]\n\n    style UI fill:#24252d,stroke:#9b9bb1,color:#f9f9fb\n    style DB fill:#24252d,stroke:#9b9bb1,color:#f9f9fb\n    style RE fill:#9999ff,stroke:#1a1b26,color:#1a1b26\n    style NW fill:#16161e,stroke:#bbeeff,color:#bbeeff\n    style PCT fill:#16161e,stroke:#bbeeff,color:#bbeeff\n    style LED fill:#24252d,stroke:#9b9bb1,color:#f9f9fb\n    style TR fill:#24252d,stroke:#9b9bb1,color:#f9f9fb\n    style CO fill:#24252d,stroke:#9b9bb1,color:#f9f9fb\n\n\n\n\n\n\nEverything downstream of entries() is a pure transformation of the same table — the trend chart, the composition pie, and the ledger never talk to SQLite directly, only to that one reactive. That’s what step 4 below sets up."
+  },
+  {
+    "objectID": "lab_notes/articles/net-worth-tracker-shiny.html#step-by-step",
+    "href": "lab_notes/articles/net-worth-tracker-shiny.html#step-by-step",
+    "title": "Building a Net Worth Tracker with R + Shiny",
+    "section": "Step by step",
+    "text": "Step by step\n\n1. Project setup\n# from the notes/ project root, or wherever you want the tracker to live\nusethis::create_project(\"net_worth_tracker\")\ninstall.packages(c(\n  \"shiny\", \"bslib\", \"DT\", \"tidyverse\",\n  \"DBI\", \"RSQLite\", \"plotly\", \"shinyWidgets\"\n))\nUse renv::init() if you want the environment pinned — worth it for anything you’ll keep adding data to over months.\n\n\n2. Data model and persistence\nSQLite over CSV: it survives concurrent writes better and makes querying by date range trivial. One table is enough.\nlibrary(DBI)\nlibrary(RSQLite)\n\ncon &lt;- dbConnect(SQLite(), \"net_worth.sqlite\")\n\ndbExecute(con, \"\n  CREATE TABLE IF NOT EXISTS entries (\n    id INTEGER PRIMARY KEY AUTOINCREMENT,\n    entry_date TEXT NOT NULL,\n    type TEXT NOT NULL CHECK (type IN ('Asset', 'Liability')),\n    subtype TEXT CHECK (subtype IN ('Income-generating', 'Personal-use') OR subtype IS NULL),\n    category TEXT NOT NULL,\n    description TEXT,\n    value REAL NOT NULL\n  )\n\")\nsubtype is nullable because it only applies to assets — liabilities don’t get it.\n\n\n3. App skeleton\n# app.R\nlibrary(shiny)\nlibrary(bslib)\nlibrary(DT)\nlibrary(dplyr)\nlibrary(plotly)\nlibrary(DBI)\nlibrary(RSQLite)\n\ncon &lt;- dbConnect(SQLite(), \"net_worth.sqlite\")\n\nui &lt;- page_sidebar(\n  title = \"Net Worth Tracker\",\n  theme = bs_theme(bootswatch = \"darkly\"),\n  sidebar = sidebar(\n    dateInput(\"entry_date\", \"Date\", value = Sys.Date()),\n    radioButtons(\"type\", \"Type\", choices = c(\"Asset\", \"Liability\")),\n    conditionalPanel(\n      \"input.type == 'Asset'\",\n      radioButtons(\"subtype\", \"Subtype\",\n                   choices = c(\"Income-generating\", \"Personal-use\"))\n    ),\n    textInput(\"category\", \"Category\"),\n    textInput(\"description\", \"Description\"),\n    numericInput(\"value\", \"Value\", value = 0, min = 0),\n    actionButton(\"add\", \"Add entry\", class = \"btn-primary\")\n  ),\n  navset_tab(\n    nav_panel(\"Overview\", uiOutput(\"summary_cards\"), plotlyOutput(\"networth_trend\")),\n    nav_panel(\"Composition\", plotlyOutput(\"asset_composition\")),\n    nav_panel(\"Ledger\", DTOutput(\"ledger\"))\n  )\n)\n\n\n4. Server logic — writing entries\nserver &lt;- function(input, output, session) {\n\n  observeEvent(input$add, {\n    subtype &lt;- if (input$type == \"Asset\") input$subtype else NA\n\n    dbExecute(con, \"\n      INSERT INTO entries (entry_date, type, subtype, category, description, value)\n      VALUES (?, ?, ?, ?, ?, ?)\",\n      params = list(\n        as.character(input$entry_date), input$type, subtype,\n        input$category, input$description, input$value\n      )\n    )\n\n    entries(dbReadTable(con, \"entries\"))  # refresh reactive below\n  })\n\n  entries &lt;- reactiveVal(dbReadTable(con, \"entries\"))\n\n\n5. Server logic — the numbers that matter\n  net_worth_by_date &lt;- reactive({\n    entries() |&gt;\n      mutate(\n        signed_value = if_else(type == \"Asset\", value, -value),\n        entry_date = as.Date(entry_date)\n      ) |&gt;\n      arrange(entry_date) |&gt;\n      group_by(entry_date) |&gt;\n      summarise(delta = sum(signed_value), .groups = \"drop\") |&gt;\n      mutate(net_worth = cumsum(delta))\n  })\n\n  pct_income_generating &lt;- reactive({\n    df &lt;- entries() |&gt; filter(type == \"Asset\")\n    if (nrow(df) == 0) return(0)\n    ig &lt;- sum(df$value[df$subtype == \"Income-generating\"])\n    ig / sum(df$value)\n  })\npct_income_generating is the Kiyosaki-stage signal from the article — rising over time means cashflow is going into assets that pay you, not just accumulating stuff or debt.\n\n\n6. Visualizations\n  output$networth_trend &lt;- renderPlotly({\n    p &lt;- ggplot(net_worth_by_date(), aes(entry_date, net_worth)) +\n      geom_line(color = \"#99f9d9\", linewidth = 1) +\n      geom_point(color = \"#99f9d9\") +\n      labs(x = NULL, y = \"Net Worth\", title = \"Net worth over time\")\n    ggplotly(p)\n  })\n\n  output$asset_composition &lt;- renderPlotly({\n    df &lt;- entries() |&gt;\n      filter(type == \"Asset\") |&gt;\n      group_by(subtype) |&gt;\n      summarise(total = sum(value), .groups = \"drop\")\n\n    plot_ly(df, labels = ~subtype, values = ~total, type = \"pie\",\n            marker = list(colors = c(\"#99f9d9\", \"#9999ff\")))\n  })\nReuse theme_radicle_night.R and its palette here (scale_color_radicle_night(), scale_fill_radicle_night()) if you’re plotting with base ggplot2 instead of plotly directly — keeps it visually consistent with the rest of this site.\n\n\n7. Ledger view\n  output$ledger &lt;- renderDT({\n    datatable(entries(), options = list(order = list(list(1, \"desc\"))))\n  })\n}\n\nshinyApp(ui, server)\n\n\n8. Running it\nshiny::runApp(\"net_worth_tracker\")\nFor anything beyond local use, rsconnect::deployApp() to shinyapps.io keeps it reachable from a phone for monthly updates — a tracker only works if updating it takes under a minute.\n\n\n9. Extending later\n\nSnapshots vs. transactions: the model above stores every entry as a delta. An alternative is snapshotting total asset/liability values monthly — simpler net worth math, but you lose the “what changed” detail. Pick one; don’t mix them.\nMultiple currencies: add a currency column and convert at read time with a fixed or fetched exchange rate — don’t store converted values.\nGoals: a horizontal geom_hline on the trend chart for a target net worth, or a target pct_income_generating, turns the app from a ledger into a scoreboard.\n\n\n\n\n\n\n\nNote\n\n\n\nThis is a build plan, not a finished app — swap in your own categories and run the CREATE TABLE once to get started."
+  },
+  {
+    "objectID": "lab_notes/books/index.html",
+    "href": "lab_notes/books/index.html",
+    "title": "Books",
+    "section": "",
+    "text": "Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitle\n\n\n\nCategories\n\n\n\nDate\n\n\n\n\n\n\n\n\nDescriptive Statistics — Rincón\n\n\nBook, Statistics\n\n\nJun 15, 2026\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "lab_notes/courses/misión-emprender.html",
+    "href": "lab_notes/courses/misión-emprender.html",
+    "title": "Misión Emprender",
+    "section": "",
+    "text": "Notes from the Misión Emprender course.\n\n\n\n\n\n\nNote\n\n\n\nReplace this with your actual course notes."
+  },
+  {
+    "objectID": "portfolio.html",
+    "href": "portfolio.html",
+    "title": "Portfolio",
+    "section": "",
+    "text": "Selected work and case studies.\n\n\n\n\n\n\nNote\n\n\n\nFill this page in with portfolio pieces — writing samples, dashboards, analyses, etc."
+  }
+]
