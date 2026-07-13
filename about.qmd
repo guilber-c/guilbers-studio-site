@@ -2,6 +2,6 @@
 title: "About"
 ---
 
-Hi, I'm Guilber. Add a short bio here — background, interests, what you're currently working on.
+Hi, I'm Guilber. I like to apply and share knowledge in my everyday life to improve myself and the world around me.
 
 You can reach me at [guilber.tech@proton.me](mailto:guilber.tech@proton.me).
