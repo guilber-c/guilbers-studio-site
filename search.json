@@ -11,7 +11,7 @@
     "href": "lab_notes/index.html",
     "title": "Lab Notes",
     "section": "",
-    "text": "Here you can fin d some notes about things I’ve read, taken a course on, or found worth writing down — filterable by type (Book / Course / Article) and topic below. Currently work in progress.\nBrowse by section: Books · Courses · Articles\n\n\n\n\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitle\n\n\n\nCategories\n\n\n\nDate\n\n\n\n\n\n\n\n\nBuilding a Net Worth Tracker with R + Shiny\n\n\nArticle, R, Shiny, Finance\n\n\nJul 10, 2026\n\n\n\n\n\n\nDescriptive Statistics — Rincón\n\n\nBook, Statistics\n\n\nJun 15, 2026\n\n\n\n\n\n\nMisión Emprender\n\n\nCourse, Entrepreneurship\n\n\nMay 20, 2026\n\n\n\n\n\n\nBuilding Effective Agents\n\n\nArticle, AI, Agents\n\n\nApr 10, 2026\n\n\n\n\n\n\nNo matching items"
+    "text": "Here you can fin d some notes about things I’ve read, taken a course on, or found worth writing down — filterable by type (Book / Course / Article) and topic below. Currently work in progress.\nBrowse by section: Books · Courses · Articles\n\n\n\n\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitle\n\n\n\nCategories\n\n\n\nDate\n\n\n\n\n\n\n\n\nHands-On Programming with R\n\n\nBook, R, Programming\n\n\nJul 14, 2026\n\n\n\n\n\n\nBuilding a Net Worth Tracker with R + Shiny\n\n\nArticle, R, Shiny, Finance\n\n\nJul 10, 2026\n\n\n\n\n\n\nDescriptive Statistics — Rincón\n\n\nBook, Statistics\n\n\nJun 15, 2026\n\n\n\n\n\n\nMisión Emprender\n\n\nCourse, Entrepreneurship\n\n\nMay 20, 2026\n\n\n\n\n\n\nBuilding Effective Agents\n\n\nArticle, AI, Agents\n\n\nApr 10, 2026\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "lab_notes/courses/index.html",
@@ -33,41 +33,6 @@
     "title": "Descriptive Statistics — Rincón",
     "section": "Test ggplot2",
     "text": "Test ggplot2\n\nlibrary(ggplot2)\nsource(\"theme_radicle_night.R\")\n\n# This is a comment\nggplot(mpg, aes(x = displ, y = hwy, color = class)) +\n  geom_point(size = 3) +\n  labs(\n    title = \"Engine Displacement vs Highway MPG\",\n    x = \"Displacement (L)\",\n    y = \"Highway MPG\"\n  ) +\n  scale_color_radicle_night() +\n  theme_radicle_night()"
-  },
-  {
-    "objectID": "lab_notes/articles/index.html",
-    "href": "lab_notes/articles/index.html",
-    "title": "Articles",
-    "section": "",
-    "text": "Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitle\n\n\n\nCategories\n\n\n\nDate\n\n\n\n\n\n\n\n\nBuilding a Net Worth Tracker with R + Shiny\n\n\nArticle, R, Shiny, Finance\n\n\nJul 10, 2026\n\n\n\n\n\n\nBuilding Effective Agents\n\n\nArticle, AI, Agents\n\n\nApr 10, 2026\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Home",
-    "section": "",
-    "text": "Welcome to my corner of the web. This site collects my lab_notes, projects, and portfolio work.\n\n Lab Notes — experiments to validate and apply what I’m studying in books, courses, and more.\n Projects — things I’m building.\n󰀻 Portfolio — some selected work.\n󰯾 About — who I am."
-  },
-  {
-    "objectID": "index.html#hi-im-guilber",
-    "href": "index.html#hi-im-guilber",
-    "title": "Home",
-    "section": "",
-    "text": "Welcome to my corner of the web. This site collects my lab_notes, projects, and portfolio work.\n\n Lab Notes — experiments to validate and apply what I’m studying in books, courses, and more.\n Projects — things I’m building.\n󰀻 Portfolio — some selected work.\n󰯾 About — who I am."
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "Hi, I’m Guilber. I like to apply and share knowledge in my everyday life to improve myself and the world around me.\nYou can reach me at GitHub."
-  },
-  {
-    "objectID": "lab_notes/articles/building-effective-agents.html",
-    "href": "lab_notes/articles/building-effective-agents.html",
-    "title": "Building Effective Agents",
-    "section": "",
-    "text": "Notes on Anthropic’s “Building Effective Agents” engineering post — workflows vs. agents, and when to reach for each pattern.\n\n\n\n\n\n\nNote\n\n\n\nReplace this with your actual notes/summary."
   },
   {
     "objectID": "lab_notes/articles/net-worth-tracker-shiny.html",
@@ -112,11 +77,81 @@
     "text": "Step by step\n\n1. Project setup\n# from the notes/ project root, or wherever you want the tracker to live\nusethis::create_project(\"net_worth_tracker\")\ninstall.packages(c(\n  \"shiny\", \"bslib\", \"DT\", \"tidyverse\",\n  \"DBI\", \"RSQLite\", \"plotly\", \"shinyWidgets\"\n))\nUse renv::init() if you want the environment pinned — worth it for anything you’ll keep adding data to over months.\n\n\n2. Data model and persistence\nSQLite over CSV: it survives concurrent writes better and makes querying by date range trivial. One table is enough.\nlibrary(DBI)\nlibrary(RSQLite)\n\ncon &lt;- dbConnect(SQLite(), \"net_worth.sqlite\")\n\ndbExecute(con, \"\n  CREATE TABLE IF NOT EXISTS entries (\n    id INTEGER PRIMARY KEY AUTOINCREMENT,\n    entry_date TEXT NOT NULL,\n    type TEXT NOT NULL CHECK (type IN ('Asset', 'Liability')),\n    subtype TEXT CHECK (subtype IN ('Income-generating', 'Personal-use') OR subtype IS NULL),\n    category TEXT NOT NULL,\n    description TEXT,\n    value REAL NOT NULL\n  )\n\")\nsubtype is nullable because it only applies to assets — liabilities don’t get it.\n\n\n3. App skeleton\n# app.R\nlibrary(shiny)\nlibrary(bslib)\nlibrary(DT)\nlibrary(dplyr)\nlibrary(plotly)\nlibrary(DBI)\nlibrary(RSQLite)\n\ncon &lt;- dbConnect(SQLite(), \"net_worth.sqlite\")\n\nui &lt;- page_sidebar(\n  title = \"Net Worth Tracker\",\n  theme = bs_theme(bootswatch = \"darkly\"),\n  sidebar = sidebar(\n    dateInput(\"entry_date\", \"Date\", value = Sys.Date()),\n    radioButtons(\"type\", \"Type\", choices = c(\"Asset\", \"Liability\")),\n    conditionalPanel(\n      \"input.type == 'Asset'\",\n      radioButtons(\"subtype\", \"Subtype\",\n                   choices = c(\"Income-generating\", \"Personal-use\"))\n    ),\n    textInput(\"category\", \"Category\"),\n    textInput(\"description\", \"Description\"),\n    numericInput(\"value\", \"Value\", value = 0, min = 0),\n    actionButton(\"add\", \"Add entry\", class = \"btn-primary\")\n  ),\n  navset_tab(\n    nav_panel(\"Overview\", uiOutput(\"summary_cards\"), plotlyOutput(\"networth_trend\")),\n    nav_panel(\"Composition\", plotlyOutput(\"asset_composition\")),\n    nav_panel(\"Ledger\", DTOutput(\"ledger\"))\n  )\n)\n\n\n4. Server logic — writing entries\nserver &lt;- function(input, output, session) {\n\n  observeEvent(input$add, {\n    subtype &lt;- if (input$type == \"Asset\") input$subtype else NA\n\n    dbExecute(con, \"\n      INSERT INTO entries (entry_date, type, subtype, category, description, value)\n      VALUES (?, ?, ?, ?, ?, ?)\",\n      params = list(\n        as.character(input$entry_date), input$type, subtype,\n        input$category, input$description, input$value\n      )\n    )\n\n    entries(dbReadTable(con, \"entries\"))  # refresh reactive below\n  })\n\n  entries &lt;- reactiveVal(dbReadTable(con, \"entries\"))\n\n\n5. Server logic — the numbers that matter\n  net_worth_by_date &lt;- reactive({\n    entries() |&gt;\n      mutate(\n        signed_value = if_else(type == \"Asset\", value, -value),\n        entry_date = as.Date(entry_date)\n      ) |&gt;\n      arrange(entry_date) |&gt;\n      group_by(entry_date) |&gt;\n      summarise(delta = sum(signed_value), .groups = \"drop\") |&gt;\n      mutate(net_worth = cumsum(delta))\n  })\n\n  pct_income_generating &lt;- reactive({\n    df &lt;- entries() |&gt; filter(type == \"Asset\")\n    if (nrow(df) == 0) return(0)\n    ig &lt;- sum(df$value[df$subtype == \"Income-generating\"])\n    ig / sum(df$value)\n  })\npct_income_generating is the Kiyosaki-stage signal from the article — rising over time means cashflow is going into assets that pay you, not just accumulating stuff or debt.\n\n\n6. Visualizations\n  output$networth_trend &lt;- renderPlotly({\n    p &lt;- ggplot(net_worth_by_date(), aes(entry_date, net_worth)) +\n      geom_line(color = \"#99f9d9\", linewidth = 1) +\n      geom_point(color = \"#99f9d9\") +\n      labs(x = NULL, y = \"Net Worth\", title = \"Net worth over time\")\n    ggplotly(p)\n  })\n\n  output$asset_composition &lt;- renderPlotly({\n    df &lt;- entries() |&gt;\n      filter(type == \"Asset\") |&gt;\n      group_by(subtype) |&gt;\n      summarise(total = sum(value), .groups = \"drop\")\n\n    plot_ly(df, labels = ~subtype, values = ~total, type = \"pie\",\n            marker = list(colors = c(\"#99f9d9\", \"#9999ff\")))\n  })\nReuse theme_radicle_night.R and its palette here (scale_color_radicle_night(), scale_fill_radicle_night()) if you’re plotting with base ggplot2 instead of plotly directly — keeps it visually consistent with the rest of this site.\n\n\n7. Ledger view\n  output$ledger &lt;- renderDT({\n    datatable(entries(), options = list(order = list(list(1, \"desc\"))))\n  })\n}\n\nshinyApp(ui, server)\n\n\n8. Running it\nshiny::runApp(\"net_worth_tracker\")\nFor anything beyond local use, rsconnect::deployApp() to shinyapps.io keeps it reachable from a phone for monthly updates — a tracker only works if updating it takes under a minute.\n\n\n9. Extending later\n\nSnapshots vs. transactions: the model above stores every entry as a delta. An alternative is snapshotting total asset/liability values monthly — simpler net worth math, but you lose the “what changed” detail. Pick one; don’t mix them.\nMultiple currencies: add a currency column and convert at read time with a fixed or fetched exchange rate — don’t store converted values.\nGoals: a horizontal geom_hline on the trend chart for a target net worth, or a target pct_income_generating, turns the app from a ledger into a scoreboard.\n\n\n\n\n\n\n\nNote\n\n\n\nThis is a build plan, not a finished app — swap in your own categories and run the CREATE TABLE once to get started."
   },
   {
+    "objectID": "lab_notes/articles/building-effective-agents.html",
+    "href": "lab_notes/articles/building-effective-agents.html",
+    "title": "Building Effective Agents",
+    "section": "",
+    "text": "Notes on Anthropic’s “Building Effective Agents” engineering post — workflows vs. agents, and when to reach for each pattern.\n\n\n\n\n\n\nNote\n\n\n\nReplace this with your actual notes/summary."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Hi, I’m Guilber. I like to apply and share knowledge in my everyday life to improve myself and the world around me.\nYou can reach me at GitHub."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Home",
+    "section": "",
+    "text": "Welcome to my corner of the web. This site collects my lab_notes, projects, and portfolio work.\n\n Lab Notes — experiments to validate and apply what I’m studying in books, courses, and more.\n Projects — things I’m building.\n󰀻 Portfolio — some selected work.\n󰯾 About — who I am."
+  },
+  {
+    "objectID": "index.html#hi-im-guilber",
+    "href": "index.html#hi-im-guilber",
+    "title": "Home",
+    "section": "",
+    "text": "Welcome to my corner of the web. This site collects my lab_notes, projects, and portfolio work.\n\n Lab Notes — experiments to validate and apply what I’m studying in books, courses, and more.\n Projects — things I’m building.\n󰀻 Portfolio — some selected work.\n󰯾 About — who I am."
+  },
+  {
+    "objectID": "lab_notes/articles/index.html",
+    "href": "lab_notes/articles/index.html",
+    "title": "Articles",
+    "section": "",
+    "text": "Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitle\n\n\n\nCategories\n\n\n\nDate\n\n\n\n\n\n\n\n\nBuilding a Net Worth Tracker with R + Shiny\n\n\nArticle, R, Shiny, Finance\n\n\nJul 10, 2026\n\n\n\n\n\n\nBuilding Effective Agents\n\n\nArticle, AI, Agents\n\n\nApr 10, 2026\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "lab_notes/books/Hands On PwR.html",
+    "href": "lab_notes/books/Hands On PwR.html",
+    "title": "Hands-On Programming with R",
+    "section": "",
+    "text": "Grolemund, G. (2014). Hands-On Programming with R: Write Your Own Functions and Simulations. O’Reilly Media.\n\nBook site: https://rstudio-education.github.io/hopr/"
+  },
+  {
+    "objectID": "lab_notes/books/Hands On PwR.html#references",
+    "href": "lab_notes/books/Hands On PwR.html#references",
+    "title": "Hands-On Programming with R",
+    "section": "",
+    "text": "Grolemund, G. (2014). Hands-On Programming with R: Write Your Own Functions and Simulations. O’Reilly Media.\n\nBook site: https://rstudio-education.github.io/hopr/"
+  },
+  {
+    "objectID": "lab_notes/books/Hands On PwR.html#purpose",
+    "href": "lab_notes/books/Hands On PwR.html#purpose",
+    "title": "Hands-On Programming with R",
+    "section": "Purpose",
+    "text": "Purpose\n\n\n\n\n\n\nNote\n\n\n\nWhy this practice: what skill or gap it’s meant to address."
+  },
+  {
+    "objectID": "lab_notes/books/Hands On PwR.html#objective",
+    "href": "lab_notes/books/Hands On PwR.html#objective",
+    "title": "Hands-On Programming with R",
+    "section": "Objective",
+    "text": "Objective\n\n\n\n\n\n\nNote\n\n\n\nWhat you expect to be able to do by the end of this practice — stated as a concrete, checkable outcome."
+  },
+  {
+    "objectID": "lab_notes/books/Hands On PwR.html#notes",
+    "href": "lab_notes/books/Hands On PwR.html#notes",
+    "title": "Hands-On Programming with R",
+    "section": "Notes",
+    "text": "Notes\n\n\n\n\n\n\nNote\n\n\n\nReplace this with your actual reading notes / exercises as you work through the book."
+  },
+  {
     "objectID": "lab_notes/books/index.html",
     "href": "lab_notes/books/index.html",
     "title": "Books",
     "section": "",
-    "text": "Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitle\n\n\n\nCategories\n\n\n\nDate\n\n\n\n\n\n\n\n\nDescriptive Statistics — Rincón\n\n\nBook, Statistics\n\n\nJun 15, 2026\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitle\n\n\n\nCategories\n\n\n\nDate\n\n\n\n\n\n\n\n\nHands-On Programming with R\n\n\nBook, R, Programming\n\n\nJul 14, 2026\n\n\n\n\n\n\nDescriptive Statistics — Rincón\n\n\nBook, Statistics\n\n\nJun 15, 2026\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "lab_notes/courses/misión-emprender.html",

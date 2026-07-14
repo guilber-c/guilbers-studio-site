@@ -2,6 +2,7 @@
   {
     "listing": "/lab_notes/index.html",
     "items": [
+      "/lab_notes/books/Hands On PwR.html",
       "/lab_notes/articles/net-worth-tracker-shiny.html",
       "/lab_notes/books/descriptive-stats-rincon.html",
       "/lab_notes/courses/misión-emprender.html",
@@ -24,6 +25,7 @@
   {
     "listing": "/lab_notes/books/index.html",
     "items": [
+      "/lab_notes/books/Hands On PwR.html",
       "/lab_notes/books/descriptive-stats-rincon.html"
     ]
   }
