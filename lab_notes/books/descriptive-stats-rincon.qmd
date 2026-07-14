@@ -10,3 +10,21 @@ Notes on the descriptive statistics chapters from Luis Rincón's probability and
 ::: {.callout-note}
 Replace this with your actual reading notes.
 :::
+
+## Test ggplot2
+
+```{r}
+library(ggplot2)
+source("theme_radicle_night.R")
+
+# This is a comment
+ggplot(mpg, aes(x = displ, y = hwy, color = class)) +
+  geom_point(size = 3) +
+  labs(
+    title = "Engine Displacement vs Highway MPG",
+    x = "Displacement (L)",
+    y = "Highway MPG"
+  ) +
+  scale_color_radicle_night() +
+  theme_radicle_night()
+```

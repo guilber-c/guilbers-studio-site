@@ -1,0 +1,30 @@
+---
+title: "Hands-On Programming with R"
+author: "Guilber"
+date: 2026-07-14
+categories: [Book, R, Programming]
+---
+
+## References
+
+Grolemund, G. (2014). *Hands-On Programming with R: Write Your Own Functions and Simulations*. O'Reilly Media.
+
+- Book site: <https://rstudio-education.github.io/hopr/>
+
+## Purpose
+
+::: {.callout-note}
+Why this practice: what skill or gap it's meant to address.
+:::
+
+## Objective
+
+::: {.callout-note}
+What you expect to be able to do by the end of this practice — stated as a concrete, checkable outcome.
+:::
+
+## Notes
+
+::: {.callout-note}
+Replace this with your actual reading notes / exercises as you work through the book.
+:::

@@ -4,4 +4,4 @@ title: "About"
 
 Hi, I'm Guilber. I like to apply and share knowledge in my everyday life to improve myself and the world around me.
 
-You can reach me at [guilber.tech@proton.me](mailto:guilber.tech@proton.me).
+You can reach me at [GitHub](https://github.com/guilber-c).

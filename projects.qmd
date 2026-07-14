@@ -2,7 +2,10 @@
 title: "Projects"
 ---
 
-A selection of things I'm building.
+This will be a selection of things I'm building. I'll be uploading some projects here soon.
+
+
+
 
 ::: {.callout-note}
 Fill this page in with your projects — each one could be a short card/section here, or its own `.qmd` with a link.

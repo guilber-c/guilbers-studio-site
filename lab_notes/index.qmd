@@ -17,6 +17,6 @@ listing:
   fields: [title, categories, date]
 ---
 
-Everything I've read, taken a course on, or found worth writing down — filterable by type (Book / Course / Article) and topic below.
+Here you can fin d some notes about things I've read, taken a course on, or found worth writing down — filterable by type (Book / Course / Article) and topic below. Currently work in progress.
 
 Browse by section: [Books](books/index.qmd) · [Courses](courses/index.qmd) · [Articles](articles/index.qmd)
