@@ -4,14 +4,14 @@
     "href": "projects.html",
     "title": "Projects",
     "section": "",
-    "text": "A selection of things I’m building.\n\n\n\n\n\n\nNote\n\n\n\nFill this page in with your projects — each one could be a short card/section here, or its own .qmd with a link."
+    "text": "This will be a selection of things I’m building. I’ll be uploading some projects here soon.\n\n\n\n\n\n\nNote\n\n\n\nFill this page in with your projects — each one could be a short card/section here, or its own .qmd with a link."
   },
   {
     "objectID": "lab_notes/index.html",
     "href": "lab_notes/index.html",
     "title": "Lab Notes",
     "section": "",
-    "text": "Everything I’ve read, taken a course on, or found worth writing down — filterable by type (Book / Course / Article) and topic below.\nBrowse by section: Books · Courses · Articles\n\n\n\n\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitle\n\n\n\nCategories\n\n\n\nDate\n\n\n\n\n\n\n\n\nBuilding a Net Worth Tracker with R + Shiny\n\n\nArticle, R, Shiny, Finance\n\n\nJul 10, 2026\n\n\n\n\n\n\nDescriptive Statistics — Rincón\n\n\nBook, Statistics\n\n\nJun 15, 2026\n\n\n\n\n\n\nMisión Emprender\n\n\nCourse, Entrepreneurship\n\n\nMay 20, 2026\n\n\n\n\n\n\nBuilding Effective Agents\n\n\nArticle, AI, Agents\n\n\nApr 10, 2026\n\n\n\n\n\n\nNo matching items"
+    "text": "Here you can fin d some notes about things I’ve read, taken a course on, or found worth writing down — filterable by type (Book / Course / Article) and topic below. Currently work in progress.\nBrowse by section: Books · Courses · Articles\n\n\n\n\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitle\n\n\n\nCategories\n\n\n\nDate\n\n\n\n\n\n\n\n\nBuilding a Net Worth Tracker with R + Shiny\n\n\nArticle, R, Shiny, Finance\n\n\nJul 10, 2026\n\n\n\n\n\n\nDescriptive Statistics — Rincón\n\n\nBook, Statistics\n\n\nJun 15, 2026\n\n\n\n\n\n\nMisión Emprender\n\n\nCourse, Entrepreneurship\n\n\nMay 20, 2026\n\n\n\n\n\n\nBuilding Effective Agents\n\n\nArticle, AI, Agents\n\n\nApr 10, 2026\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "lab_notes/courses/index.html",
@@ -25,7 +25,14 @@
     "href": "lab_notes/books/descriptive-stats-rincon.html",
     "title": "Descriptive Statistics — Rincón",
     "section": "",
-    "text": "Notes on the descriptive statistics chapters from Luis Rincón’s probability and statistics textbook.\n\n\n\n\n\n\nNote\n\n\n\nReplace this with your actual reading notes."
+    "text": "Notes on the descriptive statistics chapters from Luis Rincón’s probability and statistics textbook."
+  },
+  {
+    "objectID": "lab_notes/books/descriptive-stats-rincon.html#test-ggplot2",
+    "href": "lab_notes/books/descriptive-stats-rincon.html#test-ggplot2",
+    "title": "Descriptive Statistics — Rincón",
+    "section": "Test ggplot2",
+    "text": "Test ggplot2\n\nlibrary(ggplot2)\nsource(\"theme_radicle_night.R\")\n\n# This is a comment\nggplot(mpg, aes(x = displ, y = hwy, color = class)) +\n  geom_point(size = 3) +\n  labs(\n    title = \"Engine Displacement vs Highway MPG\",\n    x = \"Displacement (L)\",\n    y = \"Highway MPG\"\n  ) +\n  scale_color_radicle_night() +\n  theme_radicle_night()"
   },
   {
     "objectID": "lab_notes/articles/index.html",
