@@ -116,35 +116,42 @@
     "href": "lab_notes/books/Hands On PwR.html",
     "title": "Hands-On Programming with R",
     "section": "",
-    "text": "Grolemund, G. (2014). Hands-On Programming with R: Write Your Own Functions and Simulations. O’Reilly Media.\n\nBook site: https://rstudio-education.github.io/hopr/"
+    "text": "Grolemund, G. (2014). Hands-On Programming with R: Write Your Own Functions and Simulations. O’Reilly Media.\n\nBook site: https://rstudio-education.github.io/hopr/\n\ntidyquant: Tidy Quantitative Financial Analysis by Matt Dancho\n\nSite: https://business-science.github.io/tidyquant/index.html"
   },
   {
     "objectID": "lab_notes/books/Hands On PwR.html#references",
     "href": "lab_notes/books/Hands On PwR.html#references",
     "title": "Hands-On Programming with R",
     "section": "",
-    "text": "Grolemund, G. (2014). Hands-On Programming with R: Write Your Own Functions and Simulations. O’Reilly Media.\n\nBook site: https://rstudio-education.github.io/hopr/"
+    "text": "Grolemund, G. (2014). Hands-On Programming with R: Write Your Own Functions and Simulations. O’Reilly Media.\n\nBook site: https://rstudio-education.github.io/hopr/\n\ntidyquant: Tidy Quantitative Financial Analysis by Matt Dancho\n\nSite: https://business-science.github.io/tidyquant/index.html"
   },
   {
     "objectID": "lab_notes/books/Hands On PwR.html#purpose",
     "href": "lab_notes/books/Hands On PwR.html#purpose",
     "title": "Hands-On Programming with R",
     "section": "Purpose",
-    "text": "Purpose\n\n\n\n\n\n\nNote\n\n\n\nWhy this practice: what skill or gap it’s meant to address."
+    "text": "Purpose\nPractice the concepts in Hands-On Programming with R using datasets obtained with the tidyquant library."
   },
   {
-    "objectID": "lab_notes/books/Hands On PwR.html#objective",
-    "href": "lab_notes/books/Hands On PwR.html#objective",
+    "objectID": "lab_notes/books/Hands On PwR.html#quick-overview-of-tidyquant",
+    "href": "lab_notes/books/Hands On PwR.html#quick-overview-of-tidyquant",
     "title": "Hands-On Programming with R",
-    "section": "Objective",
-    "text": "Objective\n\n\n\n\n\n\nNote\n\n\n\nWhat you expect to be able to do by the end of this practice — stated as a concrete, checkable outcome."
+    "section": "Quick Overview of TidyQuant",
+    "text": "Quick Overview of TidyQuant\ntidyquant is an R package that integrates quantitative financial analysis with the tidyverse, it pulls financial/economic data via quantmod, TTR and xst and let us work with it using tidy, pipeable workflows for charting, technical analysis and portfolio/performance analytics.\n\n1. Install\n\ninstall.packages(\"tidyquant\")\n\n\n\n2. Load it\n\nlibrary(tidyquant)\n\nThis also loads core tidyverse pieces (dplyr, ggplot2, tidyr, purrr, lubridate) plus xts, quantmod, TTR, PerformanceAnalytics.\n\n\n3. Pull some data\n\n# See what indexes are available\ntq_index_options()\n\n[1] \"DOW\"       \"DOWGLOBAL\" \"SP400\"     \"SP500\"     \"SP600\"    \n\n# Pull the full S&P 500 constituent list\nsp500 &lt;- tq_index(\"SP500\")\n\nGetting holdings for SP500\n\nhead(sp500)\n\n# A tibble: 6 × 8\n  symbol company       identifier sedol weight sector shares_held local_currency\n  &lt;chr&gt;  &lt;chr&gt;         &lt;chr&gt;      &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;         \n1 NVDA   NVIDIA CORP   67066G104  2379… 0.0789 -        294362371 USD           \n2 AAPL   APPLE INC     037833100  2046… 0.0711 -        178502170 USD           \n3 MSFT   MICROSOFT CO… 594918104  2588… 0.0440 -         90282669 USD           \n4 AMZN   AMAZON.COM I… 023135106  2000… 0.0373 -        118972898 USD           \n5 GOOGL  ALPHABET INC… 02079K305  BYVY… 0.0324 -         71266331 USD           \n6 AVGO   BROADCOM INC  11135F101  BDZ7… 0.0283 -         57545044 USD           \n\n\nThis is all what we will need for this practice."
+  },
+  {
+    "objectID": "lab_notes/books/Hands On PwR.html#practice",
+    "href": "lab_notes/books/Hands On PwR.html#practice",
+    "title": "Hands-On Programming with R",
+    "section": "Practice",
+    "text": "Practice\n\nChapter 2 - The Very Basics\nI’m going to skip the very very basics, like choose an editor and set it up…\n1. Objects & assignment (&lt;-)\nTo create an R object, choose a name and then use the less-than symbol, &lt;, followed by a minus sign, -, to save data into it. Using the previous code,\n\nsp500 &lt;- tq_index(\"SP500\")\n# sp500 is the object that we create to store data that we pull with tq_index()"
   },
   {
     "objectID": "lab_notes/books/Hands On PwR.html#notes",
     "href": "lab_notes/books/Hands On PwR.html#notes",
     "title": "Hands-On Programming with R",
     "section": "Notes",
-    "text": "Notes\n\n\n\n\n\n\nNote\n\n\n\nReplace this with your actual reading notes / exercises as you work through the book."
+    "text": "Notes\n\nChapter 1 — The Very Basics, practiced with tidyquant\n1. Objects & assignment (&lt;-)\nStore a ticker and a data pull as named objects, just like die &lt;- 1:6 in the book:\n\nticker &lt;- \"AAPL\"\nprices &lt;- tq_get(ticker, get = \"stock.prices\", from = \"2023-01-01\")\n\nticker and prices now live in the environment and can be reused below.\n2. Vectors & element-wise operations\nprices$close is just a numeric vector. R applies arithmetic element-wise, the same way die + 1 adds 1 to every face:\n\ndaily_change &lt;- prices$close - lag(prices$close)\npct_change &lt;- round(daily_change / lag(prices$close) * 100, 2)\n\n3. Calling functions with arguments\ntq_get() above is a function call with named arguments (get, from), same idea as sample(1:6, size = 1) or round(x, digits = 2) in the book. Defaults matter too — leaving out from would just pull the default history length.\n4. Writing a user-defined function\nWrap the percent-change logic from step 2 into a small function, mirroring the book’s roll() example (name, body, arguments, return value = last line):\n\npct_change_close &lt;- function(data, digits = 2) {\n  change &lt;- data$close - lag(data$close)\n  round(change / lag(data$close) * 100, digits)\n}\n\npct_change_close(prices)\n\n  [1] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n [38] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n [75] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n[112] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n[149] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n[186] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n[223] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n[260] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n[297] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n[334] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n[371] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n[408] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n[445] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n[482] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n[519] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n[556] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n[593] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n[630] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n[667] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n[704] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n[741] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n[778] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n[815] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n[852] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\nattr(,\"tsp\")\n[1]   0 883   1\n\n\n\n\nTakeaways\n\nObjects in tidyquant workflows are usually data frames, but the underlying columns are still plain vectors — Chapter 1’s rules apply directly.\ntq_get() is the recurring “function call with arguments” pattern that will show up throughout the rest of the book’s exercises."
   },
   {
     "objectID": "lab_notes/books/index.html",
