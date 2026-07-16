@@ -79,7 +79,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-917e33fef9f22345ae8a730791d0194a.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-5b3953e4fb678a9b8e52e5b483585f9a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-337f3262efc1de4d3b43fafd67b12e82.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -183,11 +183,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#chapter-2---the-very-basics" id="toc-chapter-2---the-very-basics" class="nav-link" data-scroll-target="#chapter-2---the-very-basics">Chapter 2 - The Very Basics</a></li>
   </ul></li>
-  <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes">Notes</a>
-  <ul class="collapse">
-  <li><a href="#chapter-1-the-very-basics-practiced-with-tidyquant" id="toc-chapter-1-the-very-basics-practiced-with-tidyquant" class="nav-link" data-scroll-target="#chapter-1-the-very-basics-practiced-with-tidyquant">Chapter 1 — The Very Basics, practiced with tidyquant</a></li>
-  <li><a href="#takeaways" id="toc-takeaways" class="nav-link" data-scroll-target="#takeaways">Takeaways</a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
@@ -279,12 +274,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code># A tibble: 6 × 8
   symbol company       identifier sedol weight sector shares_held local_currency
   &lt;chr&gt;  &lt;chr&gt;         &lt;chr&gt;      &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;         
-1 NVDA   NVIDIA CORP   67066G104  2379… 0.0789 -        294362371 USD           
-2 AAPL   APPLE INC     037833100  2046… 0.0711 -        178502170 USD           
-3 MSFT   MICROSOFT CO… 594918104  2588… 0.0440 -         90282669 USD           
-4 AMZN   AMAZON.COM I… 023135106  2000… 0.0373 -        118972898 USD           
-5 GOOGL  ALPHABET INC… 02079K305  BYVY… 0.0324 -         71266331 USD           
-6 AVGO   BROADCOM INC  11135F101  BDZ7… 0.0283 -         57545044 USD           </code></pre>
+1 NVDA   NVIDIA CORP   67066G104  2379… 0.0789 -        295372891 USD           
+2 AAPL   APPLE INC     037833100  2046… 0.0737 -        179114962 USD           
+3 MSFT   MICROSOFT CO… 594918104  2588… 0.0450 -         90592557 USD           
+4 AMZN   AMAZON.COM I… 023135106  2000… 0.0382 -        119381282 USD           
+5 GOOGL  ALPHABET INC… 02079K305  BYVY… 0.0333 -         71510987 USD           
+6 AVGO   BROADCOM INC  11135F101  BDZ7… 0.0286 -         57742540 USD           </code></pre>
 </div>
 </div>
 <p>This is all what we will need for this practice.</p>
@@ -299,74 +294,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>To create an R object, choose a name and then use the less-than symbol, &lt;, followed by a minus sign, -, to save data into it. Using the previous code,</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>sp500 <span class="ot">&lt;-</span> <span class="fu">tq_index</span>(<span class="st">"SP500"</span>)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># sp500 is the object that we create to store data that we pull with tq_index()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># sp500 is the object that we create to store the pulled data</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(sp500)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</section>
-</section>
-<section id="notes" class="level2">
-<h2 class="anchored" data-anchor-id="notes">Notes</h2>
-<section id="chapter-1-the-very-basics-practiced-with-tidyquant" class="level3">
-<h3 class="anchored" data-anchor-id="chapter-1-the-very-basics-practiced-with-tidyquant">Chapter 1 — The Very Basics, practiced with tidyquant</h3>
-<p><strong>1. Objects &amp; assignment (<code>&lt;-</code>)</strong></p>
-<p>Store a ticker and a data pull as named objects, just like <code>die &lt;- 1:6</code> in the book:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>ticker <span class="ot">&lt;-</span> <span class="st">"AAPL"</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>prices <span class="ot">&lt;-</span> <span class="fu">tq_get</span>(ticker, <span class="at">get =</span> <span class="st">"stock.prices"</span>, <span class="at">from =</span> <span class="st">"2023-01-01"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p><code>ticker</code> and <code>prices</code> now live in the environment and can be reused below.</p>
 <p><strong>2. Vectors &amp; element-wise operations</strong></p>
-<p><code>prices$close</code> is just a numeric vector. R applies arithmetic element-wise, the same way <code>die + 1</code> adds 1 to every face:</p>
+<p>Well, what is a vector? In mathematics, a vector is an object that has both magnitude (size/length) and direction. It’s typically represented as an arrow, or numerically as an ordered list (tuple) of numbers called components or coordinates.</p>
+<p>In R this has more to do with an ordered list, using the same tibble that we use before <code>sp500$symbol</code> is just a numeric vector for R.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>daily_change <span class="ot">&lt;-</span> prices<span class="sc">$</span>close <span class="sc">-</span> <span class="fu">lag</span>(prices<span class="sc">$</span>close)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>pct_change <span class="ot">&lt;-</span> <span class="fu">round</span>(daily_change <span class="sc">/</span> <span class="fu">lag</span>(prices<span class="sc">$</span>close) <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p><strong>3. Calling functions with arguments</strong></p>
-<p><code>tq_get()</code> above is a function call with named arguments (<code>get</code>, <code>from</code>), same idea as <code>sample(1:6, size = 1)</code> or <code>round(x, digits = 2)</code> in the book. Defaults matter too — leaving out <code>from</code> would just pull the default history length.</p>
-<p><strong>4. Writing a user-defined function</strong></p>
-<p>Wrap the percent-change logic from step 2 into a small function, mirroring the book’s <code>roll()</code> example (name, body, arguments, return value = last line):</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>pct_change_close <span class="ot">&lt;-</span> <span class="cf">function</span>(data, <span class="at">digits =</span> <span class="dv">2</span>) {</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  change <span class="ot">&lt;-</span> data<span class="sc">$</span>close <span class="sc">-</span> <span class="fu">lag</span>(data<span class="sc">$</span>close)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(change <span class="sc">/</span> <span class="fu">lag</span>(data<span class="sc">$</span>close) <span class="sc">*</span> <span class="dv">100</span>, digits)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="fu">pct_change_close</span>(prices)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We can show all the elements just running</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># sp500$weight</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># But to save space we will use head() function</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sp500<span class="sc">$</span>weight, <span class="dv">10</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  [1] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
- [38] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
- [75] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-[112] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-[149] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-[186] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-[223] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-[260] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-[297] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-[334] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-[371] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-[408] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-[445] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-[482] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-[519] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-[556] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-[593] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-[630] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-[667] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-[704] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-[741] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-[778] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-[815] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-[852] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-attr(,"tsp")
-[1]   0 883   1</code></pre>
+<pre><code> [1] 0.07886066 0.07370111 0.04503111 0.03824187 0.03332606 0.02860431
+ [7] 0.02681145 0.02292649 0.01701708 0.01562640</code></pre>
 </div>
 </div>
-</section>
-<section id="takeaways" class="level3">
-<h3 class="anchored" data-anchor-id="takeaways">Takeaways</h3>
-<ul>
-<li>Objects in tidyquant workflows are usually data frames, but the underlying columns are still plain vectors — Chapter 1’s rules apply directly.</li>
-<li><code>tq_get()</code> is the recurring “function call with arguments” pattern that will show up throughout the rest of the book’s exercises.</li>
-</ul>
+<p>this shows us the first 10 elements in the vector <code>sp500$weight</code>.</p>
+<p>Now we will run an aritmetic operatin with this vector. When R performs element-wise execution, it matches up vectors and then manipulates each pair of elements independently. We will do <code>sp500$weight + 1</code> and this works</p>
+<p>0.07886066 + 1 = 1.07886066</p>
+<p>0.07370111 + 1 = 1.07370111</p>
+<p>0.04503111 + 1 = 1.04503111</p>
+<p>0.03824187 + 1 = 1.03824187</p>
+<p>…</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Here R will performs element-wise execution</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># This adds 1 to each element in the vector sp500$weight</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sp500<span class="sc">$</span>weight <span class="sc">+</span> <span class="dv">1</span>, <span class="dv">10</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 1.078861 1.073701 1.045031 1.038242 1.033326 1.028604 1.026811 1.022926
+ [9] 1.017017 1.015626</code></pre>
+</div>
+</div>
+<p><strong>2. Functions</strong></p>
 
 
 </section>
