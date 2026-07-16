@@ -17,7 +17,7 @@ tidyquant: Tidy Quantitative Financial Analysis by [Matt Dancho](https://github.
 
 ## Purpose
 
-Practice the concepts in this book using datasets obtained with the tidyquant library.
+Practice the concepts in *Hands-On Programming with R* using datasets obtained with the `tidyquant` library.
 
 ## Quick Overview of TidyQuant
 
@@ -39,10 +39,37 @@ library(tidyquant)
 
 This also loads core tidyverse pieces (`dplyr`, `ggplot2`, `tidyr`, `purrr`, `lubridate`) plus `xts`, `quantmod`, `TTR`, `PerformanceAnalytics`.
 
-### 3. Pull data with `tq_get()`
+### 3. Pull some data
 
+```{r}
 
+# See what indexes are available
+tq_index_options()
 
+# Pull the full S&P 500 constituent list
+sp500 <- tq_index("SP500")
+head(sp500)
+
+```
+
+This is all what we will need for this practice.
+
+## Practice
+
+### Chapter 2 - The Very Basics
+
+I'm going to skip the very very basics, like choose an editor and set it up...
+
+**1. Objects & assignment (`<-`)**
+
+To create an R object, choose a name and then use the less-than symbol, <, followed by a minus sign, -, to save data into it. Using the previous code,
+
+```{r}
+#| output: false
+sp500 <- tq_index("SP500")
+# sp500 is the object that we create to store data that we pull with tq_index()
+
+```
 
 
 
