@@ -67,72 +67,41 @@ To create an R object, choose a name and then use the less-than symbol, <, follo
 ```{r}
 #| output: false
 sp500 <- tq_index("SP500")
-# sp500 is the object that we create to store data that we pull with tq_index()
-
+# sp500 is the object that we create to store the pulled data
+names(sp500)
 ```
-
-
-
-
-
-
-
-
-
-
-
-## Notes
-
-### Chapter 1 — The Very Basics, practiced with tidyquant
-
-**1. Objects & assignment (`<-`)**
-
-Store a ticker and a data pull as named objects, just like `die <- 1:6` in
-the book:
-
-```{r}
-ticker <- "AAPL"
-prices <- tq_get(ticker, get = "stock.prices", from = "2023-01-01")
-```
-
-`ticker` and `prices` now live in the environment and can be reused below.
 
 **2. Vectors & element-wise operations**
 
-`prices$close` is just a numeric vector. R applies arithmetic element-wise,
-the same way `die + 1` adds 1 to every face:
+Well, what is a vector? In mathematics, a vector is an object that has both magnitude (size/length) and direction. It's typically represented as an arrow, or numerically as an ordered list (tuple) of numbers called components or coordinates.
+
+In R this has more to do with an ordered list, using the same tibble that we use before `sp500$symbol` is just a numeric vector for R.
 
 ```{r}
-daily_change <- prices$close - lag(prices$close)
-pct_change <- round(daily_change / lag(prices$close) * 100, 2)
+# We can show all the elements just running
+# sp500$weight
+# But to save space we will use head() function
+head(sp500$weight, 10) 
+
 ```
+this shows us the first 10 elements in the vector `sp500$weight`.
 
-**3. Calling functions with arguments**
+Now we will run an aritmetic operatin with this vector. When R performs element-wise execution, it matches up vectors and then manipulates each pair of elements independently. We will do `sp500$weight + 1` and this works 
 
-`tq_get()` above is a function call with named arguments (`get`, `from`),
-same idea as `sample(1:6, size = 1)` or `round(x, digits = 2)` in the book.
-Defaults matter too — leaving out `from` would just pull the default
-history length.
+  0.07886066 + 1 = 1.07886066
 
-**4. Writing a user-defined function**
-
-Wrap the percent-change logic from step 2 into a small function, mirroring
-the book's `roll()` example (name, body, arguments, return value = last
-line):
+  0.07370111 + 1 = 1.07370111
+  
+  0.04503111 + 1 = 1.04503111
+  
+  0.03824187 + 1 = 1.03824187
+  
+  ...
 
 ```{r}
-pct_change_close <- function(data, digits = 2) {
-  change <- data$close - lag(data$close)
-  round(change / lag(data$close) * 100, digits)
-}
-
-pct_change_close(prices)
+# Here R will performs element-wise execution
+# This adds 1 to each element in the vector sp500$weight
+head(sp500$weight + 1, 10) 
 ```
 
-### Takeaways
-
-- Objects in tidyquant workflows are usually data frames, but the
-  underlying columns are still plain vectors — Chapter 1's rules apply
-  directly.
-- `tq_get()` is the recurring "function call with arguments" pattern that
-  will show up throughout the rest of the book's exercises.
+**2. Functions**

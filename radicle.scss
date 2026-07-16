@@ -234,6 +234,10 @@ div.sourceCode pre.sourceCode {
   border: 1px dashed var(--rd-border-hint) !important;
 }
 
+.cell-output-stdout pre, .cell-output-stdout code {
+  color: var(--rd-fg-dim);
+}
+
 img.screenshot, img {
   border-radius: 0;
 }
