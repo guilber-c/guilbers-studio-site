@@ -11,20 +11,101 @@ Grolemund, G. (2014). *Hands-On Programming with R: Write Your Own Functions and
 
 - Book site: <https://rstudio-education.github.io/hopr/>
 
+tidyquant: Tidy Quantitative Financial Analysis by [Matt Dancho](https://github.com/mdancho84)
+
+- Site: <https://business-science.github.io/tidyquant/index.html>
+
 ## Purpose
 
-::: {.callout-note}
-Why this practice: what skill or gap it's meant to address.
-:::
+Practice the concepts in this book using datasets obtained with the tidyquant library.
 
-## Objective
+## Quick Overview of TidyQuant
 
-::: {.callout-note}
-What you expect to be able to do by the end of this practice — stated as a concrete, checkable outcome.
-:::
+`tidyquant` is an R package that integrates quantitative financial analysis with the tidyverse, it pulls financial/economic data via `quantmod`, `TTR` and `xst` and let us work with it using tidy, pipeable workflows for charting, technical analysis and portfolio/performance analytics.
+
+### 1. Install
+
+```{r}
+#| output: false
+install.packages("tidyquant")
+```
+
+### 2. Load it
+
+```{r}
+#| output: false
+library(tidyquant)
+```
+
+This also loads core tidyverse pieces (`dplyr`, `ggplot2`, `tidyr`, `purrr`, `lubridate`) plus `xts`, `quantmod`, `TTR`, `PerformanceAnalytics`.
+
+### 3. Pull data with `tq_get()`
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Notes
 
-::: {.callout-note}
-Replace this with your actual reading notes / exercises as you work through the book.
-:::
+### Chapter 1 — The Very Basics, practiced with tidyquant
+
+**1. Objects & assignment (`<-`)**
+
+Store a ticker and a data pull as named objects, just like `die <- 1:6` in
+the book:
+
+```{r}
+ticker <- "AAPL"
+prices <- tq_get(ticker, get = "stock.prices", from = "2023-01-01")
+```
+
+`ticker` and `prices` now live in the environment and can be reused below.
+
+**2. Vectors & element-wise operations**
+
+`prices$close` is just a numeric vector. R applies arithmetic element-wise,
+the same way `die + 1` adds 1 to every face:
+
+```{r}
+daily_change <- prices$close - lag(prices$close)
+pct_change <- round(daily_change / lag(prices$close) * 100, 2)
+```
+
+**3. Calling functions with arguments**
+
+`tq_get()` above is a function call with named arguments (`get`, `from`),
+same idea as `sample(1:6, size = 1)` or `round(x, digits = 2)` in the book.
+Defaults matter too — leaving out `from` would just pull the default
+history length.
+
+**4. Writing a user-defined function**
+
+Wrap the percent-change logic from step 2 into a small function, mirroring
+the book's `roll()` example (name, body, arguments, return value = last
+line):
+
+```{r}
+pct_change_close <- function(data, digits = 2) {
+  change <- data$close - lag(data$close)
+  round(change / lag(data$close) * 100, digits)
+}
+
+pct_change_close(prices)
+```
+
+### Takeaways
+
+- Objects in tidyquant workflows are usually data frames, but the
+  underlying columns are still plain vectors — Chapter 1's rules apply
+  directly.
+- `tq_get()` is the recurring "function call with arguments" pattern that
+  will show up throughout the rest of the book's exercises.
