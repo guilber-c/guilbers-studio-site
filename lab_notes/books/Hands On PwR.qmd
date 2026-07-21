@@ -68,7 +68,7 @@ To create an R object, choose a name and then use the less-than symbol, <, follo
 #| output: false
 sp500 <- tq_index("SP500")
 # sp500 is the object that we create to store the pulled data
-names(sp500)
+
 ```
 
 **2. Vectors & element-wise operations**
@@ -86,7 +86,7 @@ head(sp500$weight, 10)
 ```
 this shows us the first 10 elements in the vector `sp500$weight`.
 
-Now we will run an aritmetic operatin with this vector. When R performs element-wise execution, it matches up vectors and then manipulates each pair of elements independently. We will do `sp500$weight + 1` and this works 
+Now we will run an aritmetic operation with this vector. When R performs element-wise execution, it matches up vectors and then manipulates each pair of elements independently. We will do `sp500$weight + 1`. This adds 1 to each element in the vector, something like this, 
 
   0.07886066 + 1 = 1.07886066
 
@@ -105,3 +105,59 @@ head(sp500$weight + 1, 10)
 ```
 
 **2. Functions**
+
+R comes with many functions ready to use. 
+
+First we will load tydiquand and store the stocks in SP500
+```{r}
+#| output: false
+library(tidyquant)
+sp500 <- tq_index("SP500")
+```
+
+Now, we will pull one stock's prices — this itself is a function call, like round(3.1415)
+
+```{r}
+aapl <- tq_get("AAPL", get = "stock.prices", from = "2025-01-01")
+
+# This function calculate the mean prece for appl
+mean(aapl$adjusted)
+
+# This function roud the mean price to two decimals
+round(mean(aapl$adjusted), 2)
+
+```
+
+Looks simple but I will try to understand a little better.
+
+I will take `mean()` function. In math, `mean()` is a function $f: \mathbb{R}^n \to \mathbb{R}$ it takes a vector of $n$ numbers and maps it to a single number (a scalar). 
+
+The rule is:
+$$ f(x_1, x_2, \ldots, x_n) = \frac{1}{n}\sum_{i=1}^{n} x_i $$
+
+So we have one input (a vector), one deterministic rule (sum, then divide), one output (a scalar). We can look at a practical example using the vector $x = (1,2,3,4,5,6)$
+
+```{r}
+#| echo: false
+
+library(DiagrammeR)
+
+grViz("
+digraph flow {
+  rankdir = LR
+  bgcolor = 'transparent'
+
+  node [shape = box, style = 'filled,dashed', fillcolor = '#16161e', fontname = 'IBM Plex Mono', fontsize = 11, margin = '0.28,0.15']
+  edge [color = '#9b9bb1', arrowsize = 0.7, penwidth = 1.2]
+
+  A [label = 'x = (1,2,3,4,5,6)\ninput vector', color = '#9999ff', fontcolor = '#9999ff']
+  B [label = 'Σxᵢ = 21\nsum', color = '#99f9d9', fontcolor = '#99f9d9']
+  C [label = '21 / 6\ndivide by n', color = '#99f9d9', fontcolor = '#99f9d9']
+  D [label = '3.5\noutput', color = '#77dd77', fontcolor = '#77dd77']
+
+  A -> B -> C -> D
+}
+", height = 120)
+```
+
+Now I will build a function by myself. The idea is buid a cool functions using tidyquant data, but that is for the next session...
