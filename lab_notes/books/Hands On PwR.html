@@ -107,7 +107,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="../../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="../../site_libs/viz-1.8.2/viz.js"></script>
+<link href="../../site_libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
+<script src="../../site_libs/grViz-binding-1.0.12/grViz.js"></script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -274,12 +307,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code># A tibble: 6 × 8
   symbol company       identifier sedol weight sector shares_held local_currency
   &lt;chr&gt;  &lt;chr&gt;         &lt;chr&gt;      &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;         
-1 NVDA   NVIDIA CORP   67066G104  2379… 0.0789 -        295372891 USD           
-2 AAPL   APPLE INC     037833100  2046… 0.0737 -        179114962 USD           
-3 MSFT   MICROSOFT CO… 594918104  2588… 0.0450 -         90592557 USD           
-4 AMZN   AMAZON.COM I… 023135106  2000… 0.0382 -        119381282 USD           
-5 GOOGL  ALPHABET INC… 02079K305  BYVY… 0.0333 -         71510987 USD           
-6 AVGO   BROADCOM INC  11135F101  BDZ7… 0.0286 -         57742540 USD           </code></pre>
+1 NVDA   NVIDIA CORP   67066G104  2379… 0.0767 -        296972881 USD           
+2 AAPL   APPLE INC     037833100  2046… 0.0748 -        180085216 USD           
+3 MSFT   MICROSOFT CO… 594918104  2588… 0.0466 -         91083213 USD           
+4 AMZN   AMAZON.COM I… 023135106  2000… 0.0381 -        120027890 USD           
+5 GOOGL  ALPHABET INC… 02079K305  BYVY… 0.0322 -         71898359 USD           
+6 AVGO   BROADCOM INC  11135F101  BDZ7… 0.0279 -         58055242 USD           </code></pre>
 </div>
 </div>
 <p>This is all what we will need for this practice.</p>
@@ -294,8 +327,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>To create an R object, choose a name and then use the less-than symbol, &lt;, followed by a minus sign, -, to save data into it. Using the previous code,</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>sp500 <span class="ot">&lt;-</span> <span class="fu">tq_index</span>(<span class="st">"SP500"</span>)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># sp500 is the object that we create to store the pulled data</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(sp500)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># sp500 is the object that we create to store the pulled data</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><strong>2. Vectors &amp; element-wise operations</strong></p>
 <p>Well, what is a vector? In mathematics, a vector is an object that has both magnitude (size/length) and direction. It’s typically represented as an arrow, or numerically as an ordered list (tuple) of numbers called components or coordinates.</p>
@@ -306,12 +338,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># But to save space we will use head() function</span></span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sp500<span class="sc">$</span>weight, <span class="dv">10</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 0.07886066 0.07370111 0.04503111 0.03824187 0.03332606 0.02860431
- [7] 0.02681145 0.02292649 0.01701708 0.01562640</code></pre>
+<pre><code> [1] 0.07673594 0.07475982 0.04657629 0.03814100 0.03216894 0.02790643
+ [7] 0.02588448 0.02210680 0.01621738 0.01521261</code></pre>
 </div>
 </div>
 <p>this shows us the first 10 elements in the vector <code>sp500$weight</code>.</p>
-<p>Now we will run an aritmetic operatin with this vector. When R performs element-wise execution, it matches up vectors and then manipulates each pair of elements independently. We will do <code>sp500$weight + 1</code> and this works</p>
+<p>Now we will run an aritmetic operation with this vector. When R performs element-wise execution, it matches up vectors and then manipulates each pair of elements independently. We will do <code>sp500$weight + 1</code>. This adds 1 to each element in the vector, something like this,</p>
 <p>0.07886066 + 1 = 1.07886066</p>
 <p>0.07370111 + 1 = 1.07370111</p>
 <p>0.04503111 + 1 = 1.04503111</p>
@@ -322,11 +354,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># This adds 1 to each element in the vector sp500$weight</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sp500<span class="sc">$</span>weight <span class="sc">+</span> <span class="dv">1</span>, <span class="dv">10</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 1.078861 1.073701 1.045031 1.038242 1.033326 1.028604 1.026811 1.022926
- [9] 1.017017 1.015626</code></pre>
+<pre><code> [1] 1.076736 1.074760 1.046576 1.038141 1.032169 1.027906 1.025884 1.022107
+ [9] 1.016217 1.015213</code></pre>
 </div>
 </div>
 <p><strong>2. Functions</strong></p>
+<p>R comes with many functions ready to use.</p>
+<p>First we will load tydiquand and store the stocks in SP500</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyquant)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>sp500 <span class="ot">&lt;-</span> <span class="fu">tq_index</span>(<span class="st">"SP500"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Now, we will pull one stock’s prices — this itself is a function call, like round(3.1415)</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>aapl <span class="ot">&lt;-</span> <span class="fu">tq_get</span>(<span class="st">"AAPL"</span>, <span class="at">get =</span> <span class="st">"stock.prices"</span>, <span class="at">from =</span> <span class="st">"2025-01-01"</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># This function calculate the mean prece for appl</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(aapl<span class="sc">$</span>adjusted)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 247.5237</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This function roud the mean price to two decimals</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">mean</span>(aapl<span class="sc">$</span>adjusted), <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 247.52</code></pre>
+</div>
+</div>
+<p>Looks simple but I will try to understand a little better.</p>
+<p>I will take <code>mean()</code> function. In math, <code>mean()</code> is a function <span class="math inline">\(f: \mathbb{R}^n \to \mathbb{R}\)</span> it takes a vector of <span class="math inline">\(n\)</span> numbers and maps it to a single number (a scalar).</p>
+<p>The rule is: <span class="math display">\[ f(x_1, x_2, \ldots, x_n) = \frac{1}{n}\sum_{i=1}^{n} x_i \]</span></p>
+<p>So we have one input (a vector), one deterministic rule (sum, then divide), one output (a scalar). We can look at a practical example using the vector <span class="math inline">\(x = (1,2,3,4,5,6)\)</span></p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="htmlwidget-aee7624daf1a867545ac" style="width:100%;height:116px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-aee7624daf1a867545ac">{"x":{"diagram":"\ndigraph flow {\n  rankdir = LR\n  bgcolor = \"transparent\"\n\n  node [shape = box, style = \"filled,dashed\", fillcolor = \"#16161e\", fontname = \"IBM Plex Mono\", fontsize = 11, margin = \"0.28,0.15\"]\n  edge [color = \"#9b9bb1\", arrowsize = 0.7, penwidth = 1.2]\n\n  A [label = \"x = (1,2,3,4,5,6)\ninput vector\", color = \"#9999ff\", fontcolor = \"#9999ff\"]\n  B [label = \"Σxᵢ = 21\nsum\", color = \"#99f9d9\", fontcolor = \"#99f9d9\"]\n  C [label = \"21 / 6\ndivide by n\", color = \"#99f9d9\", fontcolor = \"#99f9d9\"]\n  D [label = \"3.5\noutput\", color = \"#77dd77\", fontcolor = \"#77dd77\"]\n\n  A -> B -> C -> D\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p>Now I will build a function by myself. The idea is buid a cool functions using tidyquant data, but that is for the next session…</p>
 
 
 </section>
