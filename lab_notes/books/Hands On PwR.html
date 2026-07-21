@@ -79,7 +79,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-917e33fef9f22345ae8a730791d0194a.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-337f3262efc1de4d3b43fafd67b12e82.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-7b5bb4c5043540c3bf9697b502b57fb2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -386,8 +386,8 @@ window.Quarto = {
 <p>So we have one input (a vector), one deterministic rule (sum, then divide), one output (a scalar). We can look at a practical example using the vector <span class="math inline">\(x = (1,2,3,4,5,6)\)</span></p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="htmlwidget-aee7624daf1a867545ac" style="width:100%;height:116px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-aee7624daf1a867545ac">{"x":{"diagram":"\ndigraph flow {\n  rankdir = LR\n  bgcolor = \"transparent\"\n\n  node [shape = box, style = \"filled,dashed\", fillcolor = \"#16161e\", fontname = \"IBM Plex Mono\", fontsize = 11, margin = \"0.28,0.15\"]\n  edge [color = \"#9b9bb1\", arrowsize = 0.7, penwidth = 1.2]\n\n  A [label = \"x = (1,2,3,4,5,6)\ninput vector\", color = \"#9999ff\", fontcolor = \"#9999ff\"]\n  B [label = \"Σxᵢ = 21\nsum\", color = \"#99f9d9\", fontcolor = \"#99f9d9\"]\n  C [label = \"21 / 6\ndivide by n\", color = \"#99f9d9\", fontcolor = \"#99f9d9\"]\n  D [label = \"3.5\noutput\", color = \"#77dd77\", fontcolor = \"#77dd77\"]\n\n  A -> B -> C -> D\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-047d7a915ff9297e7f19" style="width:100%;height:116px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-047d7a915ff9297e7f19">{"x":{"diagram":"\ndigraph flow {\n  rankdir = LR\n  bgcolor = \"transparent\"\n\n  node [shape = box, style = \"filled,dashed\", fillcolor = \"#16161e\", fontname = \"IBM Plex Mono\", fontsize = 11, margin = \"0.28,0.15\"]\n  edge [color = \"#9b9bb1\", arrowsize = 0.7, penwidth = 1.2]\n\n  A [label = \"x = (1,2,3,4,5,6)\ninput vector\", color = \"#9999ff\", fontcolor = \"#9999ff\"]\n  B [label = \"Σxᵢ = 21\nsum\", color = \"#99f9d9\", fontcolor = \"#99f9d9\"]\n  C [label = \"21 / 6\ndivide by n\", color = \"#99f9d9\", fontcolor = \"#99f9d9\"]\n  D [label = \"3.5\noutput\", color = \"#77dd77\", fontcolor = \"#77dd77\"]\n\n  A -> B -> C -> D\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>Now I will build a function by myself. The idea is buid a cool functions using tidyquant data, but that is for the next session…</p>
