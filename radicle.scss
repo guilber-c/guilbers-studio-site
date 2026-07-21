@@ -77,9 +77,19 @@ a:hover {
   border-bottom-color: var(--rd-fg);
 }
 
-/* Nerd Font glyphs used as list icons (see index.qmd) */
+/* Self-hosted subset of the Nerd Font glyphs used as list icons (see index.qmd).
+   Nerd Font icons live in the Private Use Area, so if a visitor's device doesn't
+   have a Nerd Font installed (e.g. iOS) there's no fallback glyph to render.
+   Self-hosting a tiny subset guarantees the icons show up everywhere. */
+@font-face {
+  font-family: "Nerd Icons";
+  src: url("fonts/nerd-icons.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 .nf {
-  font-family: "JetBrainsMono Nerd Font", "Hack Nerd Font Mono", "Symbols Nerd Font", monospace;
+  font-family: "Nerd Icons", "JetBrainsMono Nerd Font", "Hack Nerd Font Mono", "Symbols Nerd Font", monospace;
   color: var(--rd-pink);
   margin-right: 0.35rem;
   display: inline-block;
